@@ -8,9 +8,10 @@
               planning services for the hospitality industry in Saudi Arabia since 2003.">
   <meta name="keywords" content="Dimensions">
 
-  <link href="{{ asset('images/LogoDimention.png') }}" rel="icon">
-
-   <!-- Google Fonts -->
+  <link href="{{ asset('images/LogoDimention.png') }}" rel="icon"> 
+  <!-- <link href="images/LogoDimention.png" rel="icon"> -->
+   
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -286,8 +287,7 @@
   </header>
 
   <main class="main">
-
-       
+      
    <section id="hero" class="hero section">
       <div class="hero-bg-image"> 
         <img src="{{ asset(path: 'images/WhatsApp Image 2024-12-26 at 15.35.42_e96285a6.jpg') }}" alt="Hero Background" class="bg-image">
@@ -900,3 +900,7 @@
 </body>
 
 </html>
+
+  <!-- php artisan make:model Project -m
+php artisan make:model Service -m
+php artisan make:model Contact -m  -->
