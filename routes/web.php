@@ -1,8 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\SettingController;
 
+/* 
+Route::get('/', function () {
+    return view('welcome');
+}); */
 
 Route::get('/', function () {
     return view('index');
@@ -24,21 +32,20 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-/* Route::get('/', function () {
-    return view('index');
-})->name('home');
+Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    
+    // Projects
+    Route::resource('projects', ProjectController::class);
 
-Route::get('/services', function () {
-    return view('services'); 
-})->name('services');
- */
-/*  
+    // Services
+    Route::resource('services', ServiceController::class);
 
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.send');
-
-// Admin Panel (Requires Authentication)
-Route::prefix('admin')->middleware('auth')->group(function () {
-    Route::get('/contacts', [ContactController::class, 'index'])->name('admin.contacts');
-    Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('admin.contacts.destroy');
+    // Contacts
+    Route::resource('contacts', ContactController::class);
+    
+    // Settings
+    Route::get('settings', [SettingController::class, 'index'])->name('settings.index');
+    Route::post('settings', [SettingController::class, 'update'])->name('settings.update');
 });
- */
+

@@ -6,9 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+    /* Run the migrations. */
     public function up(): void
     {
         Schema::create('settings', function (Blueprint $table) {
@@ -19,6 +17,8 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('logo')->nullable(); // تخزين مسار صورة اللوجو
             $table->text('about')->nullable();  // نبذة عن الشركة
+            $table->string('key')->unique();
+            $table->text('value')->nullable();
             $table->timestamps();
         });
     }

@@ -16,5 +16,8 @@ class Settings extends Model
         'address',
         'logo',
         'about',
+        'key',
+        'value',
     ];
+    public $timestamps = true;
 }
