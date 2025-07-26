@@ -280,7 +280,7 @@
           <li><a href="{{ route('about') }}">About Us</a></li>
           <li><a href="{{ route('services') }}">Our Services</a></li>
           <li><a href="{{ route('projects') }}">Our Projects</a></li>
-          <li><a href="{{ route('contact') }}">Contact Us</a></li>
+          <li><a href="{{ route('contacts') }}">Contact Us</a></li>
         </ul>
       </nav>
     </div>
@@ -900,7 +900,3 @@
 </body>
 
 </html>
-
-  <!-- php artisan make:model Project -m
-php artisan make:model Service -m
-php artisan make:model Contact -m  -->

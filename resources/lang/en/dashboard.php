@@ -1,9 +1,11 @@
 <?php
 
 return [
-    'panel' => 'Admin Panel',
     'dashboard' => 'Dashboard',
-    'welcome' => 'Welcome to the Dashboard',
     'projects' => 'Projects',
+    'welcome' => 'Welcome to the Admin Panel',
     'more_info' => 'More info',
+    'panel' => 'Admin Panel',
+    'services' => 'Services',
+    'contacts' => 'Contact Messages',
 ];
