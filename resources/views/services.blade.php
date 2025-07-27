@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Our Services - Dimensions Company for Operation and Maintenance</title>
-  <meta name="description" content="Dimensions Company offers comprehensive event management and manpower services for the hospitality industry in Saudi Arabia since 2003.">
+  <meta name="description"
+    content="Dimensions Company offers comprehensive event management and manpower services for the hospitality industry in Saudi Arabia since 2003.">
   <meta name="keywords" content="Dimensions, Event Management, Manpower Services, Hospitality">
 
   <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
 
-   <link href="{{ asset('images/LogoDimention.png') }}" rel="icon">
+  <link href="{{ asset('images/LogoDimention.png') }}" rel="icon">
 
   <!-- Vendor CSS Files -->
   <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('vendor/aos/aos.css') }}">
-  <link rel="stylesheet" href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}"> 
+  <link rel="stylesheet" href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}">
   <link rel="stylesheet" href="{{ asset('vendor/swiper/swiper-bundle.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/main.css') }}">
   <link rel="stylesheet" href="{{ asset('css/mobile-nav.css') }}">
@@ -24,26 +26,7 @@
 </head>
 
 <body>
-
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-      <a href="index.blade.php" class="logo d-flex align-items-center me-auto">
-        <img src="{{ asset('images/DimensionsLogo.png') }}" alt="Dimensions Logo" class="logo">
-      </a>
-       <nav id="navmenu" class="navmenu"> 
-        <ul>
-          <li><a href="{{ route('home') }}">Home</a></li>
-          <li><a href="{{ route('about') }}">About Us</a></li>
-          <li><a href="{{ route('services') }}" class="active">Our Services</a></li>
-          <li><a href="{{ route('projects') }}">Our Projects</a></li>
-          <li><a href="{{ route('contact') }}">Contact Us</a></li>
-          <li><a href="{{ route('login') }}">Login</a></li>
-          <li><a href="{{ route('register') }}">Register</a></li>
-          <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <x-navbar />
 
   <main class="main-content">
     <!-- Page Title Section -->
@@ -58,9 +41,9 @@
       <div class="hover hover-7"></div>
       <div class="hover hover-8"></div>
       <div class="hover hover-9"></div>
-      
+
       <h1>Our Services</h1>
-      
+
       <div class="service-points">
         <h3>Welcome to Dimensions</h3>
         <ul>
@@ -93,7 +76,7 @@
       <div class="hover">
         <h1>S</h1>
       </div>
-      
+
       <div class="service-points">
         <h3>Event Management Services</h3>
         <ul>
@@ -150,7 +133,7 @@
           <h1>G</h1>
         </div>
       </div>
-      
+
       <div class="service-points">
         <h3>Pre-Event Planning</h3>
         <ul>
@@ -165,7 +148,7 @@
     <!-- On-Site Management Service -->
     <section class="concept concept-four">
       <h1>Management</h1>
-      
+
       <div class="service-points">
         <h3>On-Site Management</h3>
         <ul>
@@ -187,7 +170,7 @@
         <span class="char">E</span>
         <span class="char">T</span>
       </h1>
-      
+
       <div class="service-points">
         <h3>Budget Management</h3>
         <ul>
@@ -208,7 +191,7 @@
         <span class="char">F</span>
         <span class="char">F</span>
       </h1>
-      
+
       <div class="service-points">
         <h3>Manpower Services</h3>
         <ul>
@@ -223,7 +206,7 @@
     <!-- Consultancy Service -->
     <section class="concept concept-seven">
       <h1>consultancy</h1>
-      
+
       <div class="service-points">
         <h3>Consultancy Services</h3>
         <ul>
@@ -247,7 +230,7 @@
           <div class="char" data-content="C">C</div>
           <div class="char" data-content="T">T</div>
         </h1>
-        
+
         <div class="service-points">
           <h3>Get In Touch</h3>
           <ul>
@@ -265,18 +248,18 @@
     </section>
 
   </main>
- 
+
 
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
     <i class="bi bi-arrow-up-short"></i>
-  </a> 
+  </a>
 
   <!-- Preloader -->
-  <div id="preloader"></div> 
+  <div id="preloader"></div>
 
-   <!-- Vendor JS Files -->
+  <!-- Vendor JS Files -->
   <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
   <script src="{{ asset('vendor/aos/aos.js') }}"></script>
@@ -291,7 +274,7 @@
 
   <!-- Scroll-snap Parallax Effect Script -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       // Initialize AOS
       AOS.init({
         duration: 1000,
@@ -299,25 +282,25 @@
         once: true,
         mirror: false
       });
-      
+
       // Smooth scrolling for scroll-snap
       const mainContent = document.querySelector('.main-content');
       if (mainContent) {
         mainContent.style.scrollBehavior = 'smooth';
       }
-      
+
       // Add hover effects for concept sections
       const concepts = document.querySelectorAll('.concept');
       concepts.forEach(concept => {
-        concept.addEventListener('mouseenter', function() {
+        concept.addEventListener('mouseenter', function () {
           this.style.transform = 'scale(1.02)';
         });
-        
-        concept.addEventListener('mouseleave', function() {
+
+        concept.addEventListener('mouseleave', function () {
           this.style.transform = 'scale(1)';
         });
       });
-      
+
       // Debug: Check if elements exist
       console.log('Concept sections found:', document.querySelectorAll('.concept').length);
       console.log('Hover areas found:', document.querySelectorAll('.hover').length);
@@ -326,4 +309,5 @@
   </script>
 
 </body>
-</html> 
+
+</html>

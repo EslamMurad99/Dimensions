@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>About Us - Dimensions Company for Operation and Maintenance</title>
-  <meta name="description" content="Learn about Dimensions Company, a leading provider of comprehensive manpower solutions and event planning services for the hospitality industry in Saudi Arabia since 2003.">
+  <meta name="description"
+    content="Learn about Dimensions Company, a leading provider of comprehensive manpower solutions and event planning services for the hospitality industry in Saudi Arabia since 2003.">
   <meta name="keywords" content="Dimensions, About Us, Hospitality, Manpower Solutions, Event Planning">
 
- <!--  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
+  <!--  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
 
-   <link href="{{ asset('images/LogoDimention.png') }}" rel="icon">
+  <link href="{{ asset('images/LogoDimention.png') }}" rel="icon">
 
   <!-- Fontalicious Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fontalicious:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
-  
+  <link href="https://fonts.googleapis.com/css2?family=Fontalicious:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+
   <!-- Vendor CSS Files -->
   <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('vendor/aos/aos.css') }}">
-  <link rel="stylesheet" href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}"> 
+  <link rel="stylesheet" href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}">
   <link rel="stylesheet" href="{{ asset('vendor/swiper/swiper-bundle.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/main.css') }}">
   <link rel="stylesheet" href="{{ asset('css/mobile-nav.css') }}">
@@ -53,25 +56,7 @@
 </head>
 
 <body>
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <img src="{{ asset('images/DimensionsLogo.png') }}" alt="Dimensions Logo" class="logo">
-      </a>
-       <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="{{ route('home') }}">Home</a></li>
-          <li><a href="{{ route('about') }}" class="active">About Us</a></li>
-          <li><a href="{{ route('services') }}">Our Services</a></li>
-          <li><a href="{{ route('projects') }}">Our Projects</a></li>
-          <li><a href="{{ route('contact') }}">Contact Us</a></li>
-          <li><a href="{{ route('login') }}">Login</a></li>
-          <li><a href="{{ route('register') }}">Register</a></li>
-          <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <x-navbar />
 
   <main class="main">
     <!-- Page Title Section with Parallax -->
@@ -110,13 +95,13 @@
                 Dimensions Company is a leading provider of comprehensive manpower solutions and event
                 planning services for the hospitality industry in Saudi Arabia since 2003.
               </p>
-              
+
               <p>
                 Dimensions Company is committed to exceeding your expectations. We've been the go-to partner
                 for hotels, resorts, restaurants, and event management companies, ensuring seamless
                 operations and exceptional guest experience.
               </p>
-              
+
               <p>
                 We partner with you to understand your event goals and vision, then provide the skilled
                 workforce and expertise needed to bring them to life. By combining our proven hospitality staffing
@@ -183,15 +168,18 @@
           <div class="footer-contact pt-3">
             <p class="mt-3 d-flex align-items-center">
               <i class="bi bi-telephone-fill me-2"></i>
-              <strong>Phone:</strong> <span class="ms-1">+966560890016</span>
+              <strong>Phone:</strong> <span class="ms-1"><a href="tel:+966530330398"
+                  class="footer-phone-link">+966530330398</a></span>
             </p>
-            <p class="mt-3 d-flex align-items-center">
+            <p class="d-flex align-items-center">
               <i class="bi bi-whatsapp me-2"></i>
-              <strong>WhatsApp:</strong> <span class="ms-1">+966594815110</span>
+              <strong>WhatsApp:</strong> <span class="ms-1"><a href="https://wsend.co/966530330398" target="_blank"
+                  rel="noopener" class="footer-whatsapp-link">+966530330398</a></span>
             </p>
             <p class="d-flex align-items-center">
               <i class="bi bi-envelope-fill me-2"></i>
-              <strong>Email:</strong> <span class="ms-1">info@dimen.jobs</span>
+              <strong>Email:</strong> <span class="ms-1"><a href="mailto:info@dimen.jobs"
+                  class="mobile-nav-contact-link">info@dimen.jobs</a></span>
             </p>
           </div>
         </div>
@@ -220,7 +208,8 @@
             <a href="https://maps.app.goo.gl/LK2V14DhNsyyuKD77" target="_blank">
               <i class="bi bi-geo-alt-fill"></i>
             </a>
-            <a href="https://www.instagram.com/dimen.hospitality?igsh=MXFycGY5bGEycndoaQ=="><i class="bi bi-instagram"></i></a>
+            <a href="https://www.instagram.com/dimen.hospitality?igsh=MXFycGY5bGEycndoaQ=="><i
+                class="bi bi-instagram"></i></a>
             <a href="https://www.linkedin.com/company/dimensions_2/"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
@@ -242,7 +231,7 @@
   <!-- Preloader -->
   <div id="preloader"></div>
 
- <!-- Vendor JS Files -->
+  <!-- Vendor JS Files -->
   <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
   <script src="{{ asset('vendor/aos/aos.js') }}"></script>
@@ -255,4 +244,5 @@
   <script src="{{ asset('js/mobile-nav.js') }}"></script>
 
 </body>
-</html> 
+
+</html>

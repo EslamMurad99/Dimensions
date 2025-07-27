@@ -1,3 +1,45 @@
+.footer .footer-contact .footer-whatsapp-link {
+  font: 400 14px var(--default-font) !important;
+  text-transform: none !important;
+  text-decoration: underline;
+}
+
+.footer .footer-contact .footer-whatsapp-link:hover,
+.footer .footer-contact .footer-whatsapp-link:focus {
+  color: #0a58ca !important;
+}
+/* Footer WhatsApp link style */
+
+.footer .footer-whatsapp-link {
+  color: #0d6efd;
+  text-decoration: underline;
+  font-size: 14px;
+  font-weight: inherit;
+  background: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+  transition: color 0.2s;
+}
+
+.footer .footer-whatsapp-link:hover,
+.footer .footer-whatsapp-link:focus {
+  color: #0a58ca;
+  text-decoration: underline;
+}
+/* Ensure footer email link matches surrounding text */
+
+.footer .mobile-nav-contact-link {
+  font-size: 14px !important;
+  font-weight: inherit !important;
+  color: inherit;
+  text-decoration: underline;
+  background: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+  transition: color 0.2s;
+}
 /* ===================================
    Modern Mobile Navigation Styles
    =================================== */
