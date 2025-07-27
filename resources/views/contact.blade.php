@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Contact Us - Dimensions Company for Operation and Maintenance</title>
-  <meta name="description" content="Contact Dimensions Company for event management and manpower services in Saudi Arabia. Get in touch with our expert team.">
+  <meta name="description"
+    content="Contact Dimensions Company for event management and manpower services in Saudi Arabia. Get in touch with our expert team.">
   <meta name="keywords" content="Dimensions, Contact, Event Management, Manpower Services, Saudi Arabia">
 
   <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
@@ -12,10 +14,10 @@
   <link href="{{ asset('images/LogoDimention.png') }}" rel="icon">
 
   <!-- Vendor CSS Files -->
-   <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('vendor/aos/aos.css') }}">
-  <link rel="stylesheet" href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}"> 
+  <link rel="stylesheet" href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}">
   <link rel="stylesheet" href="{{ asset('vendor/swiper/swiper-bundle.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/main.css') }}">
   <link rel="stylesheet" href="{{ asset('css/mobile-nav.css') }}">
@@ -24,25 +26,7 @@
 
 <body>
 
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <img src="{{ asset('images/DimensionsLogo.png') }}" alt="Dimensions Logo" class="logo">
-      </a>
-       <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="{{ route('home') }}">Home</a></li>
-          <li><a href="{{ route('about') }}">About Us</a></li>
-          <li><a href="{{ route('services') }}">Our Services</a></li>
-          <li><a href="{{ route('projects') }}">Our Projects</a></li>
-          <li><a href="{{ route('contact') }}" class="active">Contact Us</a></li>
-          <li><a href="{{ route('login') }}">Login</a></li>
-          <li><a href="{{ route('register') }}">Register</a></li>
-          <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <x-navbar />
 
   <main class="main">
 
@@ -90,7 +74,7 @@
                   </div>
                   <div>
                     <h5 class="mb-1">Phone</h5>
-                    <p class="mb-0">+966 560 890 016</p>
+                    <p class="mb-0"><a href="tel:+966530330398" class="footer-phone-link">+966530330398</a></p>
                   </div>
                 </div>
               </div>
@@ -114,7 +98,8 @@
                   </div>
                   <div>
                     <h5 class="mb-1">Email</h5>
-                    <p class="mb-0">info@dimen.jobs</p>
+                    <p class="mb-0"><a href="mailto:info@dimen.jobs" class="mobile-nav-contact-link">info@dimen.jobs</a>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -127,7 +112,8 @@
                   <div>
                     <h5 class="mb-1">Location</h5>
                     <p class="mb-0">Saudi Arabia</p>
-                    <a href="https://maps.app.goo.gl/LK2V14DhNsyyuKD77" target="_blank" class="btn btn-outline-primary btn-sm mt-2">
+                    <a href="https://maps.app.goo.gl/LK2V14DhNsyyuKD77" target="_blank"
+                      class="btn btn-outline-primary btn-sm mt-2">
                       <i class="bi bi-map me-1"></i>View on Map
                     </a>
                   </div>
@@ -135,7 +121,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="col-lg-6 col-md-12" data-aos="fade-left">
             <div class="contact-form-container">
               <div class="section-title text-start">
@@ -143,21 +129,12 @@
                 <p class="mb-4">Fill out the form below and we'll get back to you as soon as possible.</p>
               </div>
               @if(session('success'))
-                  <div style="color: green;">{{ session('success') }}</div>
-              @endif
-            <!-- action="forms/contact.php" -->
-              <form method="post" action="{{ route('contact.store') }}" class="php-email-form">
+          <div style="color: green;">{{ session('success') }}</div>
+        @endif
+              <!-- action="forms/contact.php" -->
+
+              <form method="post" action="{{ route('contact.store') }}" class="php-email-form" id="contactForm">
                 @csrf
-                {{-- ✅ عرض الأخطاء هنا --}}
-                @if ($errors->any())
-                    <div class="alert alert-danger" style="color: red; margin-bottom: 1rem;">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
                 <div class="row gy-4">
                   <div class="col-md-6">
                     <input type="text" name="name" class="form-control" placeholder="Your Name" required>
@@ -172,28 +149,68 @@
                     <input type="text" class="form-control" name="subject" placeholder="Subject" required>
                   </div>
                   <div class="col-12">
-                     <select class="form-select" name="service" required>
+                    <select class="form-select" name="service_id" required>
                       <option value="">Select Service</option>
-                      <option value="Event Management">Event Management</option>
-                      <option value="Manpower Services">Manpower Services</option>
-                      <option value="Consultancy">Consultancy</option>
-                      <option value="Other">Other</option>
-                     </select>
+                      <option value="1">Event Management</option>
+                      <option value="2">Manpower Services</option>
+                      <option value="3">Consultancy</option>
+                      <option value="4">Other</option>
+                    </select>
                   </div>
                   <div class="col-12">
                     <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
                   </div>
-
-                  <div class="loading">جارٍ الإرسال...</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">تم إرسال الرسالة بنجاح!</div>
-
+                  <div id="contact-success" class="sent-message"
+                    style="display:none; background: #e6ffed; color: #218838; border: 1px solid #218838; border-radius: 8px; padding: 10px; text-align: center; margin-bottom: 10px;">
+                    Your message is received, we will get back to you shortly.
+                  </div>
+                  <div id="contact-error" class="error-message"
+                    style="display:none; background: #ffeaea; color: #d8000c; border: 1px solid #d8000c; border-radius: 8px; padding: 10px; text-align: center; margin-bottom: 10px;">
+                  </div>
                   <div class="col-12 text-center">
                     <button type="submit" class="btn btn-primary">Send Message</button>
                   </div>
                 </div>
               </form>
-              
+
+              <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                  const form = document.getElementById('contactForm');
+                  const successMsg = document.getElementById('contact-success');
+                  const errorMsg = document.getElementById('contact-error');
+                  form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    successMsg.style.display = 'none';
+                    errorMsg.style.display = 'none';
+                    const formData = new FormData(form);
+                    fetch(form.action, {
+                      method: 'POST',
+                      headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'X-CSRF-TOKEN': form.querySelector('[name="_token"]').value
+                      },
+                      body: formData
+                    })
+                      .then(response => {
+                        if (response.ok) {
+                          form.reset();
+                          successMsg.style.display = 'block';
+                          return;
+                        }
+                        return response.json().then(data => { throw data; });
+                      })
+                      .catch(error => {
+                        let msg = 'An error occurred. Please try again.';
+                        if (error && error.errors) {
+                          msg = Object.values(error.errors).flat().join('<br>');
+                        }
+                        errorMsg.innerHTML = msg;
+                        errorMsg.style.display = 'block';
+                      });
+                  });
+                });
+              </script>
+
             </div>
           </div>
         </div>
@@ -215,7 +232,8 @@
                 <i class="bi bi-geo-alt-fill"></i>
                 <span>Location</span>
               </a>
-              <a href="https://www.instagram.com/dimen.hospitality?igsh=MXFycGY5bGEycndoaQ==" target="_blank" class="social-link">
+              <a href="https://www.instagram.com/dimen.hospitality?igsh=MXFycGY5bGEycndoaQ==" target="_blank"
+                class="social-link">
                 <i class="bi bi-instagram"></i>
                 <span>Instagram</span>
               </a>
@@ -230,7 +248,7 @@
     </section>
 
   </main>
- 
+
   <footer id="footer" class="footer">
     <div class="container footer-top">
       <div class="row gy-4">
@@ -241,15 +259,18 @@
           <div class="footer-contact pt-3">
             <p class="mt-3 d-flex align-items-center">
               <i class="bi bi-telephone-fill me-2"></i>
-              <strong>Phone:</strong> <span class="ms-1">+966560890016</span>
+              <strong>Phone:</strong> <span class="ms-1"><a href="tel:+966530330398"
+                  class="footer-phone-link">+966530330398</a></span>
             </p>
-            <p class="mt-3 d-flex align-items-center">
+            <p class="d-flex align-items-center">
               <i class="bi bi-whatsapp me-2"></i>
-              <strong>WhatsApp:</strong> <span class="ms-1">+966594815110</span>
+              <strong>WhatsApp:</strong> <span class="ms-1"><a href="https://wsend.co/966530330398" target="_blank"
+                  rel="noopener" class="footer-whatsapp-link">+966530330398</a></span>
             </p>
             <p class="d-flex align-items-center">
               <i class="bi bi-envelope-fill me-2"></i>
-              <strong>Email:</strong> <span class="ms-1">info@dimen.jobs</span>
+              <strong>Email:</strong> <span class="ms-1"><a href="mailto:info@dimen.jobs"
+                  class="mobile-nav-contact-link">info@dimen.jobs</a></span>
             </p>
           </div>
         </div>
@@ -259,7 +280,7 @@
             <li><i class="bi bi-chevron-right"></i> <a href="index.html">Home</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="index.html#about">About us</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="services.html">Our Services</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="projects.html">Our Projects</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="projects.html">Our Projects</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
@@ -278,7 +299,8 @@
             <a href="https://maps.app.goo.gl/LK2V14DhNsyyuKD77" target="_blank">
               <i class="bi bi-geo-alt-fill"></i>
             </a>
-            <a href="https://www.instagram.com/dimen.hospitality?igsh=MXFycGY5bGEycndoaQ=="><i class="bi bi-instagram"></i></a>
+            <a href="https://www.instagram.com/dimen.hospitality?igsh=MXFycGY5bGEycndoaQ=="><i
+                class="bi bi-instagram"></i></a>
             <a href="https://www.linkedin.com/company/dimensions_2/"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
@@ -295,12 +317,12 @@
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
     <i class="bi bi-arrow-up-short"></i>
-  </a> 
+  </a>
 
   <!-- Preloader -->
-  <div id="preloader"></div> 
+  <div id="preloader"></div>
 
-   <!-- Vendor JS Files -->
+  <!-- Vendor JS Files -->
   <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
   <script src="{{ asset('vendor/aos/aos.js') }}"></script>
@@ -314,14 +336,14 @@
 
   <!-- Parallax Effect Script -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       // Initialize AOS
       AOS.init({
         duration: 1000,
         easing: 'ease-in-out',
         once: true,
         mirror: false
-      }); 
+      });
     });
   </script>
 
@@ -339,4 +361,5 @@
   </script>
 
 </body>
-</html> 
+
+</html>

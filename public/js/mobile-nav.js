@@ -36,7 +36,7 @@ class MobileNavigation {
       <div class="mobile-nav-menu">
         <div class="mobile-nav-header">
           <div class="mobile-nav-logo">
-            <img src="assets/img/DimensionsLogo.png" alt="Dimensions Logo">
+            <img src="/images/DimensionsLogo.png" alt="Dimensions Logo">
           </div>
           <button class="mobile-nav-close" aria-label="Close mobile navigation">
             <i class="bi bi-x-lg"></i>
@@ -45,7 +45,7 @@ class MobileNavigation {
         
         <ul class="mobile-nav-list">
           <li class="mobile-nav-item">
-            <a href="index.html" class="mobile-nav-link" data-page="home">
+            <a href="/" class="mobile-nav-link" data-page="home">
               <div class="mobile-nav-icon">
                 <i class="bi bi-house-door"></i>
               </div>
@@ -54,7 +54,7 @@ class MobileNavigation {
             </a>
           </li>
           <li class="mobile-nav-item">
-            <a href="index.html#about" class="mobile-nav-link" data-page="about">
+            <a href="/about" class="mobile-nav-link" data-page="about">
               <div class="mobile-nav-icon">
                 <i class="bi bi-info-circle"></i>
               </div>
@@ -63,7 +63,7 @@ class MobileNavigation {
             </a>
           </li>
           <li class="mobile-nav-item">
-            <a href="services.html" class="mobile-nav-link" data-page="services">
+            <a href="/services" class="mobile-nav-link" data-page="services">
               <div class="mobile-nav-icon">
                 <i class="bi bi-gear"></i>
               </div>
@@ -72,7 +72,7 @@ class MobileNavigation {
             </a>
           </li>
           <li class="mobile-nav-item">
-            <a href="projects.html" class="mobile-nav-link" data-page="projects">
+            <a href="/projects" class="mobile-nav-link" data-page="projects">
               <div class="mobile-nav-icon">
                 <i class="bi bi-briefcase"></i>
               </div>
@@ -81,7 +81,7 @@ class MobileNavigation {
             </a>
           </li>
           <li class="mobile-nav-item">
-            <a href="contact.html" class="mobile-nav-link" data-page="contact">
+            <a href="/contact" class="mobile-nav-link" data-page="contact">
               <div class="mobile-nav-icon">
                 <i class="bi bi-envelope"></i>
               </div>
@@ -95,11 +95,11 @@ class MobileNavigation {
           <div class="mobile-nav-contact">
             <div class="mobile-nav-contact-item">
               <i class="bi bi-telephone"></i>
-              <span>+966 560 890 016</span>
+              <span>+966 53 033 0398</span>
             </div>
             <div class="mobile-nav-contact-item">
               <i class="bi bi-envelope"></i>
-              <span>info@dimen.jobs</span>
+              <a href="mailto:info@dimen.jobs" class="mobile-nav-contact-link" tabindex="0">info@dimen.jobs</a>
             </div>
           </div>
           
@@ -310,14 +310,21 @@ class MobileNavigation {
    */
   getCurrentPage() {
     const path = window.location.pathname;
-    const hash = window.location.hash;
-    
-    if (path.includes('services.html')) return 'services';
-    if (path.includes('projects.html')) return 'projects';
-    if (path.includes('contact.html')) return 'contact';
-    if (hash.includes('about')) return 'about';
-    if (path.includes('index.html') || path === '/' || path === '') return 'home';
-    
+    // Normalize trailing slashes
+    const cleanPath = path.replace(/\/$/, '');
+
+    if (cleanPath === '' || cleanPath === '/') return 'home';
+    if (cleanPath === '/about') return 'about';
+    if (cleanPath === '/services') return 'services';
+    if (cleanPath === '/projects') return 'projects';
+    if (cleanPath === '/contact') return 'contact';
+
+    // fallback: try to match partials
+    if (cleanPath.includes('about')) return 'about';
+    if (cleanPath.includes('service')) return 'services';
+    if (cleanPath.includes('project')) return 'projects';
+    if (cleanPath.includes('contact')) return 'contact';
+
     return 'home';
   }
 
