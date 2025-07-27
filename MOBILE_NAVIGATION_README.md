@@ -7,30 +7,34 @@ A modern, stylish, and modular mobile navigation system has been implemented for
 ## Features
 
 ### 🎨 **Modern Design**
-- Glassmorphism effect with backdrop blur
-- Smooth animations and transitions
-- Responsive design for all screen sizes
-- Custom hamburger menu animation
+
+-   Glassmorphism effect with backdrop blur
+-   Smooth animations and transitions
+-   Responsive design for all screen sizes
+-   Custom hamburger menu animation
 
 ### 🚀 **Enhanced Functionality**
-- Full-screen overlay navigation
-- Contact information display
-- Social media links integration
-- Active page highlighting
-- Smooth scrolling for anchor links
+
+-   Full-screen overlay navigation
+-   Contact information display
+-   Social media links integration
+-   Active page highlighting
+-   Smooth scrolling for anchor links
 
 ### ♿ **Accessibility**
-- Keyboard navigation support
-- Focus management
-- ARIA labels and semantic HTML
-- High contrast mode support
-- Reduced motion support
+
+-   Keyboard navigation support
+-   Focus management
+-   ARIA labels and semantic HTML
+-   High contrast mode support
+-   Reduced motion support
 
 ### 📱 **Mobile Optimized**
-- Touch-friendly interface
-- Gesture support
-- Responsive breakpoints
-- Performance optimized
+
+-   Touch-friendly interface
+-   Gesture support
+-   Responsive breakpoints
+-   Performance optimized
 
 ## Files Structure
 
@@ -50,21 +54,21 @@ assets/
 
 The mobile navigation CSS includes:
 
-- **CSS Variables**: Centralized styling with CSS custom properties
-- **Responsive Design**: Breakpoints for different screen sizes
-- **Animations**: Smooth transitions and keyframe animations
-- **Accessibility**: Focus states and high contrast support
-- **Modern Effects**: Backdrop blur, glassmorphism, and hover effects
+-   **CSS Variables**: Centralized styling with CSS custom properties
+-   **Responsive Design**: Breakpoints for different screen sizes
+-   **Animations**: Smooth transitions and keyframe animations
+-   **Accessibility**: Focus states and high contrast support
+-   **Modern Effects**: Backdrop blur, glassmorphism, and hover effects
 
 ### JavaScript (mobile-nav.js)
 
 The mobile navigation JavaScript includes:
 
-- **Class-based Architecture**: Modular and maintainable code
-- **Event Handling**: Comprehensive event management
-- **State Management**: Active page detection and navigation state
-- **Keyboard Support**: Full keyboard navigation and focus trapping
-- **Performance**: Optimized animations and event listeners
+-   **Class-based Architecture**: Modular and maintainable code
+-   **Event Handling**: Comprehensive event management
+-   **State Management**: Active page detection and navigation state
+-   **Keyboard Support**: Full keyboard navigation and focus trapping
+-   **Performance**: Optimized animations and event listeners
 
 ## Usage
 
@@ -73,8 +77,8 @@ The mobile navigation JavaScript includes:
 The mobile navigation automatically initializes when the DOM is loaded:
 
 ```javascript
-document.addEventListener('DOMContentLoaded', () => {
-  window.mobileNav = new MobileNavigation();
+document.addEventListener("DOMContentLoaded", () => {
+    window.mobileNav = new MobileNavigation();
 });
 ```
 
@@ -104,12 +108,12 @@ window.mobileNav.destroy();
 Listen for mobile navigation events:
 
 ```javascript
-document.addEventListener('mobileNavOpen', (e) => {
-  console.log('Mobile navigation opened');
+document.addEventListener("mobileNavOpen", (e) => {
+    console.log("Mobile navigation opened");
 });
 
-document.addEventListener('mobileNavClose', (e) => {
-  console.log('Mobile navigation closed');
+document.addEventListener("mobileNavClose", (e) => {
+    console.log("Mobile navigation closed");
 });
 ```
 
@@ -128,7 +132,7 @@ The mobile navigation automatically creates its own HTML structure, but requires
 Include the mobile navigation CSS in your HTML:
 
 ```html
-<link href="assets/css/mobile-nav.css" rel="stylesheet">
+<link href="assets/css/mobile-nav.css" rel="stylesheet" />
 ```
 
 ### JavaScript Integration
@@ -147,11 +151,11 @@ Modify CSS variables in `mobile-nav.css`:
 
 ```css
 :root {
-  --mobile-nav-bg: rgba(61, 77, 106, 0.98);
-  --mobile-nav-overlay: rgba(0, 0, 0, 0.8);
-  --mobile-nav-text: #ffffff;
-  --mobile-nav-text-hover: #47b2e4;
-  /* ... more variables */
+    --mobile-nav-bg: rgba(61, 77, 106, 0.98);
+    --mobile-nav-overlay: rgba(0, 0, 0, 0.8);
+    --mobile-nav-text: #ffffff;
+    --mobile-nav-text-hover: #47b2e4;
+    /* ... more variables */
 }
 ```
 
@@ -177,23 +181,23 @@ Update contact details in the mobile navigation footer:
 ```javascript
 // In createMobileNavHTML() method
 <div class="mobile-nav-contact-item">
-  <i class="bi bi-telephone"></i>
-  <span>+966 560 890 016</span>
+    <i class="bi bi-telephone"></i>
+    <span>+966 53 033 0398</span>
 </div>
 ```
 
 ## Browser Support
 
-- **Modern Browsers**: Chrome, Firefox, Safari, Edge (latest versions)
-- **Mobile Browsers**: iOS Safari, Chrome Mobile, Samsung Internet
-- **Fallbacks**: Graceful degradation for older browsers
+-   **Modern Browsers**: Chrome, Firefox, Safari, Edge (latest versions)
+-   **Mobile Browsers**: iOS Safari, Chrome Mobile, Samsung Internet
+-   **Fallbacks**: Graceful degradation for older browsers
 
 ## Performance
 
-- **Optimized Animations**: Hardware-accelerated CSS transforms
-- **Efficient Event Handling**: Debounced resize events
-- **Memory Management**: Proper cleanup and event removal
-- **Lazy Loading**: Minimal initial load impact
+-   **Optimized Animations**: Hardware-accelerated CSS transforms
+-   **Efficient Event Handling**: Debounced resize events
+-   **Memory Management**: Proper cleanup and event removal
+-   **Lazy Loading**: Minimal initial load impact
 
 ## Testing
 
@@ -230,10 +234,10 @@ Enable debug logging:
 
 ```javascript
 // Add to mobile-nav.js
-console.log('Mobile Navigation Debug:', {
-  isActive: this.isActive,
-  currentPage: this.currentPage,
-  container: this.container
+console.log("Mobile Navigation Debug:", {
+    isActive: this.isActive,
+    currentPage: this.currentPage,
+    container: this.container,
 });
 ```
 
@@ -248,26 +252,26 @@ console.log('Mobile Navigation Debug:', {
 
 ### Compatibility
 
-- **Backward Compatible**: Old navigation still works on desktop
-- **Progressive Enhancement**: New features enhance existing functionality
-- **No Breaking Changes**: All existing functionality preserved
+-   **Backward Compatible**: Old navigation still works on desktop
+-   **Progressive Enhancement**: New features enhance existing functionality
+-   **No Breaking Changes**: All existing functionality preserved
 
 ## Future Enhancements
 
 ### Planned Features
 
-- [ ] Submenu support for complex navigation
-- [ ] Search functionality integration
-- [ ] User preferences storage
-- [ ] Analytics integration
-- [ ] Multi-language support
+-   [ ] Submenu support for complex navigation
+-   [ ] Search functionality integration
+-   [ ] User preferences storage
+-   [ ] Analytics integration
+-   [ ] Multi-language support
 
 ### Performance Improvements
 
-- [ ] Intersection Observer for animations
-- [ ] Service Worker integration
-- [ ] Preloading strategies
-- [ ] Bundle optimization
+-   [ ] Intersection Observer for animations
+-   [ ] Service Worker integration
+-   [ ] Preloading strategies
+-   [ ] Bundle optimization
 
 ## Support
 
@@ -283,4 +287,4 @@ For issues or questions about the mobile navigation system:
 **Version**: 1.0.0  
 **Last Updated**: December 2024  
 **Author**: AI Assistant  
-**License**: Project-specific 
+**License**: Project-specific
