@@ -30,13 +30,16 @@
       <a href="index.blade.php" class="logo d-flex align-items-center me-auto">
         <img src="{{ asset('images/DimensionsLogo.png') }}" alt="Dimensions Logo" class="logo">
       </a>
-       <nav id="navmenu" class="navmenu">
+       <nav id="navmenu" class="navmenu"> 
         <ul>
           <li><a href="{{ route('home') }}">Home</a></li>
           <li><a href="{{ route('about') }}">About Us</a></li>
           <li><a href="{{ route('services') }}" class="active">Our Services</a></li>
           <li><a href="{{ route('projects') }}">Our Projects</a></li>
           <li><a href="{{ route('contact') }}">Contact Us</a></li>
+          <li><a href="{{ route('login') }}">Login</a></li>
+          <li><a href="{{ route('register') }}">Register</a></li>
+          <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
         </ul>
       </nav>
     </div>

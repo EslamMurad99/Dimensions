@@ -13,11 +13,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
+            $table->string('phone');
             $table->string('subject');
+            $table->string('message');
             $table->foreignId('service_id')
                   ->constrained('services')
                   ->onDelete('cascade');
-            $table->string('message');
             $table->timestamps();
         });
     }

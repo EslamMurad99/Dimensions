@@ -6,7 +6,7 @@
     <div class="row g-4" data-aos="fade-up">
         <div class="col-md-4">
             <a href="{{ route('dashboard') }}" class="card p-4 nav-link text-center">
-                {{ __('dashboard.title') }}
+                {{ __('dashboard.clients') }}  <!-- title -->
             </a>
         </div>
         <div class="col-md-4">

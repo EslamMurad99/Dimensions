@@ -48,10 +48,10 @@
 
     <div class="container">
         <div class="d-flex justify-content-between mb-4">
-            <div>
+            <!-- <div>
                 <a href="{{ route('lang.switch', 'en') }}" class="btn btn-outline-primary">EN</a>
                 <a href="{{ route('lang.switch', 'ar') }}" class="btn btn-outline-primary">عربي</a>
-            </div>
+            </div> -->
             <h4>{{ __('Admin Panel') }}</h4>
         </div>
 

@@ -6,10 +6,11 @@ use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ContactController;
-use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 
 // ✅ الصفحة الرئيسية
@@ -22,9 +23,10 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('/contacts', function () {
+ Route::get('/contacts', function () {
     return view('contact');
 })->name('contacts');
+ 
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -37,15 +39,6 @@ Route::get('/projects', function () {
 Route::get('/services', function () {
     return view('services');
 })->name('services');
-
-// ✅ تغيير اللغة
-Route::get('lang/{locale}', function ($locale) {
-    if (in_array($locale, ['en', 'ar'])) {
-        Session::put('locale', $locale);
-        App::setLocale($locale);
-    }
-    return redirect()->back();
-})->name('lang.switch');
 
 // ✅ الواجهة الأمامية
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -77,6 +70,22 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+// موجودة تلقائيًا لو انت مستخدم auth scaffolding
+Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
+Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+/* Route::post('/contact', [ContactController::class, 'store'])->name('contact.submit');
+Route::post('/admin/contacts', [ContactController::class, 'store'])->name('contacts.store'); 
+Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+
+Route::post('/contact-submit', [ContactController::class, 'store'])->name('contact.submit');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/contact', [ContactController::class, 'contact'])->name('contact.form');
+ */
 
 // ✅ مصادقة Laravel Breeze
 require __DIR__.'/auth.php';

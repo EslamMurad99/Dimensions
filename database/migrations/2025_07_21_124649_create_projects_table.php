@@ -12,11 +12,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('service_id')
                   ->constrained('services')
-                  ->onDelete('cascade'); // لو اتحذفت الخدمة، المشاريع المرتبطة تتحذف تلقائيًا
-            /* $table->foreignId('service_id')
-            ->nullable()
-            ->constrained('services')
-            ->onDelete('set null'); */
+                  ->onDelete('cascade');
             $table->string('title');
             $table->string('decription');
             $table->string('image');

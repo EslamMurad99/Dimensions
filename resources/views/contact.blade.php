@@ -36,6 +36,9 @@
           <li><a href="{{ route('services') }}">Our Services</a></li>
           <li><a href="{{ route('projects') }}">Our Projects</a></li>
           <li><a href="{{ route('contact') }}" class="active">Contact Us</a></li>
+          <li><a href="{{ route('login') }}">Login</a></li>
+          <li><a href="{{ route('register') }}">Register</a></li>
+          <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
         </ul>
       </nav>
     </div>
@@ -139,8 +142,22 @@
                 <h3>Send Us a Message</h3>
                 <p class="mb-4">Fill out the form below and we'll get back to you as soon as possible.</p>
               </div>
-              
-              <form action="forms/contact.php" method="post" class="php-email-form">
+              @if(session('success'))
+                  <div style="color: green;">{{ session('success') }}</div>
+              @endif
+            <!-- action="forms/contact.php" -->
+              <form method="post" action="{{ route('contact.store') }}" class="php-email-form">
+                @csrf
+                {{-- ✅ عرض الأخطاء هنا --}}
+                @if ($errors->any())
+                    <div class="alert alert-danger" style="color: red; margin-bottom: 1rem;">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="row gy-4">
                   <div class="col-md-6">
                     <input type="text" name="name" class="form-control" placeholder="Your Name" required>
@@ -155,22 +172,28 @@
                     <input type="text" class="form-control" name="subject" placeholder="Subject" required>
                   </div>
                   <div class="col-12">
-                    <select class="form-select" name="service" required>
+                     <select class="form-select" name="service" required>
                       <option value="">Select Service</option>
                       <option value="Event Management">Event Management</option>
                       <option value="Manpower Services">Manpower Services</option>
                       <option value="Consultancy">Consultancy</option>
                       <option value="Other">Other</option>
-                    </select>
+                     </select>
                   </div>
                   <div class="col-12">
                     <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
                   </div>
+
+                  <div class="loading">جارٍ الإرسال...</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">تم إرسال الرسالة بنجاح!</div>
+
                   <div class="col-12 text-center">
                     <button type="submit" class="btn btn-primary">Send Message</button>
                   </div>
                 </div>
               </form>
+              
             </div>
           </div>
         </div>
@@ -299,6 +322,19 @@
         once: true,
         mirror: false
       }); 
+    });
+  </script>
+
+  <!--to reset form in contact us form-->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.querySelector('.php-email-form');
+      const successMsg = document.querySelector('div[style*="color: green"]');
+
+      // لو ظهر رسالة النجاح، يبقى تم الحفظ
+      if (successMsg && form) {
+        form.reset();
+      }
     });
   </script>
 

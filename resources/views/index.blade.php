@@ -275,13 +275,16 @@
         <img src="{{ asset('images/DimensionsLogo.png') }}" alt="Dimensions Logo" class="logo">
       </a>
        <nav id="navmenu" class="navmenu">
-        <ul>
+         <ul>
           <li><a href="{{ route('home') }}" class="active">Home</a></li>
           <li><a href="{{ route('about') }}">About Us</a></li>
           <li><a href="{{ route('services') }}">Our Services</a></li>
           <li><a href="{{ route('projects') }}">Our Projects</a></li>
           <li><a href="{{ route('contacts') }}">Contact Us</a></li>
-        </ul>
+          <li><a href="{{ route('login') }}">Login</a></li>
+          <li><a href="{{ route('register') }}">Register</a></li>
+          <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+        </ul>  
       </nav>
     </div>
   </header>

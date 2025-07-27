@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+  use App\Models\Service;
 
 class HomeController extends Controller
 {
     public function index() {
-        return view('index');
+        $service = Service::all();
+        return view('index', compact('service'));
     }
 
     public function about() {
@@ -18,10 +20,13 @@ class HomeController extends Controller
     }
 
     public function contact() {
-        return view('contact');
+        return view('contact'); 
     }
 
     public function projects() {
         return view('projects');
     }
+  
+
+
 }
