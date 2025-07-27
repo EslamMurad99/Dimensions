@@ -49,6 +49,7 @@ Route::get('/projects', [HomeController::class, 'projects'])->name('projects');
 
 // ✅ لوحة تحكم الأدمن (Admin Panel)
 Route::prefix('admin')->name('admin.')->group(function () {
+   
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
     // Projects
@@ -78,14 +79,11 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
-/* Route::post('/contact', [ContactController::class, 'store'])->name('contact.submit');
-Route::post('/admin/contacts', [ContactController::class, 'store'])->name('contacts.store'); 
-Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('projects', ProjectController::class);
+    //  Route::resource('clients', ClientController::class);
+});
 
-Route::post('/contact-submit', [ContactController::class, 'store'])->name('contact.submit');
-Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-Route::get('/contact', [ContactController::class, 'contact'])->name('contact.form');
- */
 
 // ✅ مصادقة Laravel Breeze
 require __DIR__.'/auth.php';

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>@yield('title')</title>
@@ -45,22 +45,30 @@
     </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4 rounded">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ route('dashboard') }}">{{ __('Admin Panel') }}</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.projects.index') }}">{{ __('Projects') }}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.contacts.index') }}">{{ __('Contacts') }}</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <div class="container">
         <div class="d-flex justify-content-between mb-4">
-            <!-- <div>
-                <a href="{{ route('lang.switch', 'en') }}" class="btn btn-outline-primary">EN</a>
-                <a href="{{ route('lang.switch', 'ar') }}" class="btn btn-outline-primary">عربي</a>
-            </div> -->
             <h4>{{ __('Admin Panel') }}</h4>
         </div>
 
         @yield('content')
     </div>
 
-    <footer>
-        &copy; 2025 Dimensions
+    <footer class="text-end mt-4 text-muted small">
+    &copy; 2025 Dimensions
     </footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>

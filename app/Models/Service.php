@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Service extends Model
 {
-    protected $fillable = [
+    public $fillable = [  // protected
         'title',
         'description',
         'icon',

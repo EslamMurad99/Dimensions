@@ -6,21 +6,16 @@
     <div class="row g-4" data-aos="fade-up">
         <div class="col-md-4">
             <a href="{{ route('dashboard') }}" class="card p-4 nav-link text-center">
-                {{ __('dashboard.clients') }}  <!-- title -->
-            </a>
-        </div>
-        <div class="col-md-4">
-            <a href="{{ route('projects.index') }}" class="card p-4 nav-link text-center">
-                {{ __('dashboard.projects') }}
-            </a>
-        </div>
-        <div class="col-md-4">
-            <a href="{{ route('services.index') }}" class="card p-4 nav-link text-center">
                 {{ __('dashboard.services') }}
             </a>
         </div>
         <div class="col-md-4">
-            <a href="{{ route('contacts.index') }}" class="card p-4 nav-link text-center">
+            <a href="{{ route('admin.projects.index') }}" class="card p-4 nav-link text-center">
+                {{ __('dashboard.projects') }}
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="{{ route('admin.contacts.index') }}" class="card p-4 nav-link text-center">
                 {{ __('dashboard.contacts') }}
             </a>
         </div>
