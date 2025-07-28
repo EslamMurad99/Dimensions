@@ -74,7 +74,6 @@
       </nav>
     </div>
   </header>
-  <x-navbar />
 
   <main class="main">
     <!-- Page Title Section with Parallax -->
