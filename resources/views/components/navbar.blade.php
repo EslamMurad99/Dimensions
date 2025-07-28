@@ -1,7 +1,7 @@
 <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
         <a href="index.blade.php" class="logo d-flex align-items-center me-auto">
-            <img src="{{ asset('images/DimensionsLogo.png') }}" alt="Dimensions Logo" class="logo">
+            <img src="{{ secure_asset('images/DimensionsLogo.png') }}" alt="Dimensions Logo" class="logo">
         </a>
         <nav id="navmenu" class="navmenu">
             <ul>

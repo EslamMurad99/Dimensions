@@ -22,10 +22,9 @@ class AppServiceProvider extends ServiceProvider
         app()->setLocale(session('locale', config('app.locale')));
         
         // Force HTTPS for all asset URLs in production
-        // Temporarily disabled for testing
-        // if (env('APP_ENV') === 'production') {
-        //     $this->forceHttpsForAssets();
-        // }
+        if (env('APP_ENV') === 'production' || env('FORCE_HTTPS') === 'true') {
+            $this->forceHttpsForAssets();
+        }
         
 
     }

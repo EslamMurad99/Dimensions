@@ -10,7 +10,7 @@
               planning services for the hospitality industry in Saudi Arabia since 2003.">
   <meta name="keywords" content="Dimensions">
 
-  <link href="{{ asset('images/LogoDimention.png') }}" rel="icon" type="image/png">
+  <link href="{{ secure_asset('images/LogoDimention.png') }}" rel="icon" type="image/png">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -21,15 +21,15 @@
 
 
   <!-- Vendor CSS Files -->
-  <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}">
-  <link rel="stylesheet" href="{{ asset('vendor/aos/aos.css') }}">
-  <link rel="stylesheet" href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('vendor/swiper/swiper-bundle.min.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('vendor/bootstrap-icons/bootstrap-icons.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('vendor/aos/aos.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('vendor/glightbox/css/glightbox.min.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('vendor/swiper/swiper-bundle.min.css') }}">
 
   <!-- MAin CSS -->
-  <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/mobile-nav.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('css/main.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('css/mobile-nav.css') }}">
 
   <!-- Countup Section Styles -->
   <style>
@@ -292,14 +292,14 @@
   <!-- Splash screen should be here, before header -->
   <div class="intro">
     <h1 class="logo-header">
-      <img src="{{ asset('images/DimensionsLogo.png') }}" alt="Dimensions Logo" class="logo">
+      <img src="{{ secure_asset('images/DimensionsLogo.png') }}" alt="Dimensions Logo" class="logo">
     </h1>
   </div>
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
       <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <img src="{{ asset('images/DimensionsLogo.png') }}" alt="Dimensions Logo" class="logo">
+        <img src="{{ secure_asset('images/DimensionsLogo.png') }}" alt="Dimensions Logo" class="logo">
       </a>
        <nav id="navmenu" class="navmenu">
          <ul>
@@ -319,7 +319,7 @@
 
     <section id="hero" class="hero section">
       <div class="hero-bg-image">
-        <img src="{{ asset('images/WhatsApp Image 2024-12-26 at 15.35.42_e96285a6.jpg') }}" alt="Hero Background"
+        <img src="{{ secure_asset('images/WhatsApp Image 2024-12-26 at 15.35.42_e96285a6.jpg') }}" alt="Hero Background"
           class="bg-image">
         <div class="bg-overlay"></div>
       </div>
@@ -340,7 +340,7 @@
           <!-- الصورة على اليمين -->
           <div class="col-lg-6" data-aos="fade-left">
             <div class="hero-image-container">
-              <img src="{{ asset('images/DimensionsLogo.png') }}" alt="Dimensions Company" class="hero-image">
+              <img src="{{ secure_asset('images/DimensionsLogo.png') }}" alt="Dimensions Company" class="hero-image">
             </div>
           </div>
         </div>
@@ -447,37 +447,37 @@
         <div class="swiper init-swiper">
           <!-- Remove the JSON config script -->
           <div class="swiper-wrapper align-items-center" id="clients-wrapper">
-            <div class="swiper-slide"><img src="{{ asset('images/clients/c1.png') }}" class="img-fluid" alt="client 1"
+            <div class="swiper-slide"><img src="{{ secure_asset('images/clients/c1.png') }}" class="img-fluid" alt="client 1"
                 loading="lazy"></div>
-            <div class="swiper-slide"><img src="{{ asset('images/clients/c2.png') }}" class="img-fluid" alt="client 2"
+            <div class="swiper-slide"><img src="{{ secure_asset('images/clients/c2.png') }}" class="img-fluid" alt="client 2"
                 loading="lazy"></div>
-            <div class="swiper-slide"><img src="{{ asset('images/clients/c3.png') }}" class="img-fluid" alt="client 3"
+            <div class="swiper-slide"><img src="{{ secure_asset('images/clients/c3.png') }}" class="img-fluid" alt="client 3"
                 loading="lazy"></div>
-            <div class="swiper-slide"><img src="{{ asset('images/clients/c4.png') }}" class="img-fluid" alt="client 4"
+            <div class="swiper-slide"><img src="{{ secure_asset('images/clients/c4.png') }}" class="img-fluid" alt="client 4"
                 loading="lazy"></div>
-            <div class="swiper-slide"><img src="{{ asset('images/clients/c5.png') }}" class="img-fluid" alt="client 5"
+            <div class="swiper-slide"><img src="{{ secure_asset('images/clients/c5.png') }}" class="img-fluid" alt="client 5"
                 loading="lazy"></div>
-            <div class="swiper-slide"><img src="{{ asset('images/clients/c6.png') }}" class="img-fluid" alt="client 6"
+            <div class="swiper-slide"><img src="{{ secure_asset('images/clients/c6.png') }}" class="img-fluid" alt="client 6"
                 loading="lazy"></div>
-            <div class="swiper-slide"><img src="{{ asset('images/clients/c7.png') }}" class="img-fluid" alt="client 7"
+            <div class="swiper-slide"><img src="{{ secure_asset('images/clients/c7.png') }}" class="img-fluid" alt="client 7"
                 loading="lazy"></div>
-            <div class="swiper-slide"><img src="{{ asset('images/clients/c8.png') }}" class="img-fluid" alt="client 8"
+            <div class="swiper-slide"><img src="{{ secure_asset('images/clients/c8.png') }}" class="img-fluid" alt="client 8"
                 loading="lazy"></div>
-            <div class="swiper-slide"><img src="{{ asset('images/clients/clients-1.webp') }}" class="img-fluid"
+            <div class="swiper-slide"><img src="{{ secure_asset('images/clients/clients-1.webp') }}" class="img-fluid"
                 alt="client 1" loading="lazy"></div>
-            <div class="swiper-slide"><img src="{{ asset('images/clients/clients-2.webp') }}" class="img-fluid"
+            <div class="swiper-slide"><img src="{{ secure_asset('images/clients/clients-2.webp') }}" class="img-fluid"
                 alt="client 2" loading="lazy"></div>
-            <div class="swiper-slide"><img src="{{ asset('images/clients/clients-3.webp') }}" class="img-fluid"
+            <div class="swiper-slide"><img src="{{ secure_asset('images/clients/clients-3.webp') }}" class="img-fluid"
                 alt="client 3" loading="lazy"></div>
-            <div class="swiper-slide"><img src="{{ asset('images/clients/clients-4.webp') }}" class="img-fluid"
+            <div class="swiper-slide"><img src="{{ secure_asset('images/clients/clients-4.webp') }}" class="img-fluid"
                 alt="client 4" loading="lazy"></div>
-            <div class="swiper-slide"><img src="{{ asset('images/clients/clients-5.webp') }}" class="img-fluid"
+            <div class="swiper-slide"><img src="{{ secure_asset('images/clients/clients-5.webp') }}" class="img-fluid"
                 alt="client 5" loading="lazy"></div>
-            <div class="swiper-slide"><img src="{{ asset('images/clients/clients-6.webp') }}" class="img-fluid"
+            <div class="swiper-slide"><img src="{{ secure_asset('images/clients/clients-6.webp') }}" class="img-fluid"
                 alt="client 6" loading="lazy"></div>
-            <div class="swiper-slide"><img src="{{ asset('images/clients/clients-7.webp') }}" class="img-fluid"
+            <div class="swiper-slide"><img src="{{ secure_asset('images/clients/clients-7.webp') }}" class="img-fluid"
                 alt="client 7" loading="lazy"></div>
-            <div class="swiper-slide"><img src="{{ asset('images/clients/clients-8.webp') }}" class="img-fluid"
+            <div class="swiper-slide"><img src="{{ secure_asset('images/clients/clients-8.webp') }}" class="img-fluid"
                 alt="client 8" loading="lazy"></div>
               <!-- Initial Add Button as c-panel to control our clients -->
               <div class="swiper-slide d-flex align-items-center justify-content-center add-client-slide">
@@ -507,7 +507,7 @@
             <div class="portfolio-flip-card">
               <div class="portfolio-flip-card-inner">
                 <div class="portfolio-flip-card-front">
-                  <img src="{{ asset('images/projects/IMG-20250717-WA0053_image_repair_1752928851354.jpg') }}"
+                  <img src="{{ secure_asset('images/projects/IMG-20250717-WA0053_image_repair_1752928851354.jpg') }}"
                     class="img-fluid" alt="Formula 1 Project" loading="lazy">
                 </div>
                 <div class="portfolio-flip-card-back">
@@ -524,7 +524,7 @@
             <div class="portfolio-flip-card">
               <div class="portfolio-flip-card-inner">
                 <div class="portfolio-flip-card-front">
-                  <img src="{{ asset('images/projects/IMG-20250717-WA0054_image_repair_1752928741684.jpg') }}"
+                  <img src="{{ secure_asset('images/projects/IMG-20250717-WA0054_image_repair_1752928741684.jpg') }}"
                     class="img-fluid" alt="Al Mirkaz Project" loading="lazy">
                 </div>
                 <div class="portfolio-flip-card-back">
@@ -541,7 +541,7 @@
             <div class="portfolio-flip-card">
               <div class="portfolio-flip-card-inner">
                 <div class="portfolio-flip-card-front">
-                  <img src="{{ asset('images/projects/IMG-20250717-WA0055_image_repair_1752928896029.jpg') }}"
+                  <img src="{{ secure_asset('images/projects/IMG-20250717-WA0055_image_repair_1752928896029.jpg') }}"
                     class="img-fluid" alt="Fira Villas Project" loading="lazy">
                 </div>
                 <div class="portfolio-flip-card-back">
@@ -558,7 +558,7 @@
             <div class="portfolio-flip-card">
               <div class="portfolio-flip-card-inner">
                 <div class="portfolio-flip-card-front">
-                  <img src="{{ asset('images/projects/IMG-20250717-WA0056_image_repair_1752928931064.jpg') }}"
+                  <img src="{{ secure_asset('images/projects/IMG-20250717-WA0056_image_repair_1752928931064.jpg') }}"
                     class="img-fluid" alt="Banyan Tree Project" loading="lazy">
                 </div>
                 <div class="portfolio-flip-card-back">
@@ -575,7 +575,7 @@
             <div class="portfolio-flip-card">
               <div class="portfolio-flip-card-inner">
                 <div class="portfolio-flip-card-front">
-                  <img src="{{ asset('images/projects/IMG-20250717-WA0057_image_repair_1752928966241.jpg') }}"
+                  <img src="{{ secure_asset('images/projects/IMG-20250717-WA0057_image_repair_1752928966241.jpg') }}"
                     class="img-fluid" alt="Jeddah Season Project" loading="lazy">
                 </div>
                 <div class="portfolio-flip-card-back">
@@ -592,7 +592,7 @@
             <div class="portfolio-flip-card">
               <div class="portfolio-flip-card-inner">
                 <div class="portfolio-flip-card-front">
-                  <img src="{{ asset('images/projects/IMG-20250717-WA0058_image_repair_1752928998433.jpg') }}"
+                  <img src="{{ secure_asset('images/projects/IMG-20250717-WA0058_image_repair_1752928998433.jpg') }}"
                     class="img-fluid" alt="FIFA Club World Cup Project" loading="lazy">
                 </div>
                 <div class="portfolio-flip-card-back">
@@ -609,7 +609,7 @@
             <div class="portfolio-flip-card">
               <div class="portfolio-flip-card-inner">
                 <div class="portfolio-flip-card-front">
-                  <img src="{{ asset('images/projects/snapedit_1752931408497.jpeg') }}" class="img-fluid"
+                  <img src="{{ secure_asset('images/projects/snapedit_1752931408497.jpeg') }}" class="img-fluid"
                     alt="Riyadh Season Project" loading="lazy">
                 </div>
                 <div class="portfolio-flip-card-back">
@@ -626,7 +626,7 @@
             <div class="portfolio-flip-card">
               <div class="portfolio-flip-card-inner">
                 <div class="portfolio-flip-card-front">
-                  <img src="{{ asset('images/projects/WhatsApp Image 2025-07-19 at 3.24.19 PM.png') }}"
+                  <img src="{{ secure_asset('images/projects/WhatsApp Image 2025-07-19 at 3.24.19 PM.png') }}"
                     class="img-fluid" alt="Al Balad Project" loading="lazy">
                 </div>
                 <div class="portfolio-flip-card-back">
@@ -856,14 +856,14 @@
 
 
   <!-- Vendor JS Files -->
-  <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
-  <script src="{{ asset('vendor/aos/aos.js') }}"></script>
-  <script src="{{ asset('vendor/glightbox/js/glightbox.min.js') }}"></script>
-  <script src="{{ asset('vendor/swiper/swiper-bundle.min.js') }}" onerror="loadSwiperFromCDN()"></script>
-  <script src="{{ asset('vendor/waypoints/noframework.waypoints.js') }}"></script>
-  <script src="{{ asset('vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-  <script src="{{ asset('vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ secure_asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ secure_asset('vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ secure_asset('vendor/aos/aos.js') }}"></script>
+  <script src="{{ secure_asset('vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ secure_asset('vendor/swiper/swiper-bundle.min.js') }}" onerror="loadSwiperFromCDN()"></script>
+  <script src="{{ secure_asset('vendor/waypoints/noframework.waypoints.js') }}"></script>
+  <script src="{{ secure_asset('vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+  <script src="{{ secure_asset('vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
   
   <!-- Fallback for Swiper if local file fails to load -->
   <script>
@@ -888,8 +888,8 @@
   </script>
 
   <!-- Main JS -->
-  <script src="{{ asset('js/main.js') }}"></script>
-  <script src="{{ asset('js/mobile-nav.js') }}"></script>
+  <script src="{{ secure_asset('js/main.js') }}"></script>
+  <script src="{{ secure_asset('js/mobile-nav.js') }}"></script>
 
   <script>
     // Project stats swiper - using window to avoid conflicts

@@ -11,7 +11,7 @@
 
   <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
 
-  <link href="{{ asset('images/LogoDimention.png') }}" rel="icon">
+  <link href="{{ secure_asset('images/LogoDimention.png') }}" rel="icon">
 
 
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -23,15 +23,15 @@
 
   <!-- Vendor CSS Files -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}">
-  <link rel="stylesheet" href="{{ asset('vendor/aos/aos.css') }}">
-  <link rel="stylesheet" href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('vendor/bootstrap-icons/bootstrap-icons.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('vendor/aos/aos.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('vendor/glightbox/css/glightbox.min.css') }}">
   <!-- Swiper JS from CDN to ensure HTTPS and latest version -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/mobile-nav.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/projects-parallax.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('css/main.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('css/mobile-nav.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('css/projects-parallax.css') }}">
 
 </head>
 
@@ -40,7 +40,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
       <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <img src="{{ asset('images/DimensionsLogo.png') }}" alt="Dimensions Logo" class="logo">
+        <img src="{{ secure_asset('images/DimensionsLogo.png') }}" alt="Dimensions Logo" class="logo">
       </a>
        <nav id="navmenu" class="navmenu">
         <ul>
@@ -61,139 +61,139 @@
       <div class="horizontal-scroll-wrapper" id="auto-scroll-wrapper">
         <div class="img-wrapper slower">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0001.jpg') }}" alt="Project 1">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0001.jpg') }}" alt="Project 1">
           </a>
         </div>
 
         <div class="img-wrapper faster">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0002.jpg') }}" alt="Project 2">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0002.jpg') }}" alt="Project 2">
           </a>
         </div>
 
         <div class="img-wrapper slower vertical">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0003.jpg') }}" alt="Project 3">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0003.jpg') }}" alt="Project 3">
           </a>
         </div>
 
         <div class="img-wrapper slower slower-down">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0004.jpg') }}" alt="Project 4">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0004.jpg') }}" alt="Project 4">
           </a>
         </div>
 
         <div class="img-wrapper">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0005.jpg') }}" alt="Project 5">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0005.jpg') }}" alt="Project 5">
           </a>
         </div>
 
         <div class="img-wrapper slower">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0006.jpg') }}" alt="Project 6">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0006.jpg') }}" alt="Project 6">
           </a>
         </div>
 
         <div class="img-wrapper faster1">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0007.jpg') }}" alt="Project 7">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0007.jpg') }}" alt="Project 7">
           </a>
         </div>
 
         <div class="img-wrapper slower slower2">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0008.jpg') }}" alt="Project 8">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0008.jpg') }}" alt="Project 8">
           </a>
         </div>
 
         <div class="img-wrapper">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0009.jpg') }}" alt="Project 9">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0009.jpg') }}" alt="Project 9">
           </a>
         </div>
 
         <div class="img-wrapper slower">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0010.jpg') }}" alt="Project 10">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0010.jpg') }}" alt="Project 10">
           </a>
         </div>
 
         <div class="img-wrapper slower last">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0011.jpg') }}" alt="Project 11">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0011.jpg') }}" alt="Project 11">
           </a>
         </div>
 
         <div class="img-wrapper faster">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0012.jpg') }}" alt="Project 12">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0012.jpg') }}" alt="Project 12">
           </a>
         </div>
 
         <div class="img-wrapper slower">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0013.jpg') }}" alt="Project 13">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0013.jpg') }}" alt="Project 13">
           </a>
         </div>
 
         <div class="img-wrapper">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0014.jpg') }}" alt="Project 14">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0014.jpg') }}" alt="Project 14">
           </a>
         </div>
 
         <div class="img-wrapper slower">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0015.jpg') }}" alt="Project 15">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0015.jpg') }}" alt="Project 15">
           </a>
         </div>
 
         <div class="img-wrapper faster1">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0016.jpg') }}" alt="Project 16">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0016.jpg') }}" alt="Project 16">
           </a>
         </div>
 
         <div class="img-wrapper slower">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0017.jpg') }}" alt="Project 17">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0017.jpg') }}" alt="Project 17">
           </a>
         </div>
 
         <div class="img-wrapper">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0018.jpg') }}" alt="Project 18">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0018.jpg') }}" alt="Project 18">
           </a>
         </div>
 
         <div class="img-wrapper slower">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0019.jpg') }}" alt="Project 19">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0019.jpg') }}" alt="Project 19">
           </a>
         </div>
 
         <div class="img-wrapper faster">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0020.jpg') }}" alt="Project 20">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0020.jpg') }}" alt="Project 20">
           </a>
         </div>
 
         <div class="img-wrapper slower">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0021.jpg') }}" alt="Project 21">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0021.jpg') }}" alt="Project 21">
           </a>
         </div>
 
         <div class="img-wrapper">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0022.jpg') }}" alt="Project 22">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0022.jpg') }}" alt="Project 22">
           </a>
         </div>
 
         <div class="img-wrapper slower last">
           <a href="#" target="_blank" rel="noopener">
-            <img src="{{ asset('images/list_of_projects/list of Project_page-0023.jpg') }}" alt="Project 23">
+            <img src="{{ secure_asset('images/list_of_projects/list of Project_page-0023.jpg') }}" alt="Project 23">
           </a>
         </div>
       </div>
@@ -226,16 +226,16 @@
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
-  <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
-  <script src="{{ asset('vendor/aos/aos.js') }}"></script>
-  <script src="{{ asset('vendor/glightbox/js/glightbox.min.js') }}"></script>
-  <script src="{{ asset('vendor/swiper/swiper-bundle.min.js') }}"></script>
-  <script src="{{ asset('vendor/waypoints/noframework.waypoints.js') }}"></script>
-  <script src="{{ asset('vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-  <script src="{{ asset('vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-  <script src="{{ asset('js/main.js') }}"></script>
-  <script src="{{ asset('js/mobile-nav.js') }}"></script>
+  <script src="{{ secure_asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ secure_asset('vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ secure_asset('vendor/aos/aos.js') }}"></script>
+  <script src="{{ secure_asset('vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ secure_asset('vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ secure_asset('vendor/waypoints/noframework.waypoints.js') }}"></script>
+  <script src="{{ secure_asset('vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+  <script src="{{ secure_asset('vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ secure_asset('js/main.js') }}"></script>
+  <script src="{{ secure_asset('js/mobile-nav.js') }}"></script>
 
   <!-- Projects Page Script -->
   <script>

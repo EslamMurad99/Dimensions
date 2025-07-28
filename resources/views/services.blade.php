@@ -11,19 +11,19 @@
 
   <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
 
-  <link href="{{ asset('images/LogoDimention.png') }}" rel="icon">
+  <link href="{{ secure_asset('images/LogoDimention.png') }}" rel="icon">
 
   <!-- Vendor CSS Files -->
-  <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}">
-  <link rel="stylesheet" href="{{ asset('vendor/aos/aos.css') }}">
-  <link rel="stylesheet" href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('vendor/bootstrap-icons/bootstrap-icons.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('vendor/aos/aos.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('vendor/glightbox/css/glightbox.min.css') }}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <!-- Swiper JS from CDN to ensure HTTPS and latest version -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/mobile-nav.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/services-parallax.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('css/main.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('css/mobile-nav.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('css/services-parallax.css') }}">
 
 </head>
 
@@ -32,7 +32,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
       <a href="index.blade.php" class="logo d-flex align-items-center me-auto">
-        <img src="{{ asset('images/DimensionsLogo.png') }}" alt="Dimensions Logo" class="logo">
+        <img src="{{ secure_asset('images/DimensionsLogo.png') }}" alt="Dimensions Logo" class="logo">
       </a>
        <nav id="navmenu" class="navmenu"> 
         <ul>
@@ -280,17 +280,17 @@
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
-  <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
-  <script src="{{ asset('vendor/aos/aos.js') }}"></script>
-  <script src="{{ asset('vendor/glightbox/js/glightbox.min.js') }}"></script>
-  <script src="{{ asset('vendor/swiper/swiper-bundle.min.js') }}"></script>
-  <script src="{{ asset('vendor/waypoints/noframework.waypoints.js') }}"></script>
-  <script src="{{ asset('vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-  <script src="{{ asset('vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-  <script src="{{ asset('js/main.js') }}"></script>
-  <script src="{{ asset('js/mobile-nav.js') }}"></script>
-  <script src="{{ asset('js/services-background.js') }}"></script>
+  <script src="{{ secure_asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ secure_asset('vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ secure_asset('vendor/aos/aos.js') }}"></script>
+  <script src="{{ secure_asset('vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ secure_asset('vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ secure_asset('vendor/waypoints/noframework.waypoints.js') }}"></script>
+  <script src="{{ secure_asset('vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+  <script src="{{ secure_asset('vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ secure_asset('js/main.js') }}"></script>
+  <script src="{{ secure_asset('js/mobile-nav.js') }}"></script>
+  <script src="{{ secure_asset('js/services-background.js') }}"></script>
 
   <!-- Scroll-snap Parallax Effect Script -->
   <script>
