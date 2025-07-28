@@ -124,6 +124,15 @@ window.addEventListener('DOMContentLoaded', () => {
       console.log('Splash screen completely hidden');
     }, 1000);
   }, 3500);
+  
+  // Fallback: Force hide splash screen after 5 seconds
+  setTimeout(() => {
+    if (intro.style.display !== 'none') {
+      console.log('Fallback: Forcing splash screen to hide');
+      intro.style.display = 'none';
+      intro.style.top = '-100vh';
+    }
+  }, 5000);
 });
 
 // Track internal navigation
@@ -368,18 +377,20 @@ window.resetSplashScreen = function() {
 // Clients swiper initialization moved to the main function to avoid duplicates
 
 
-// Intersection Observer for hidden elements
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    console.log(entry)
-    if (entry.isIntersecting){
-      entry.target.classList.add('show');
-    }
-    else{
-      entry.target.classList.remove('show')
-    }
-  })
-});
+// Intersection Observer for hidden elements - using window to avoid conflicts
+if (!window.hiddenElementsObserver) {
+  window.hiddenElementsObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      console.log(entry)
+      if (entry.isIntersecting){
+        entry.target.classList.add('show');
+      }
+      else{
+        entry.target.classList.remove('show')
+      }
+    })
+  });
 
-const hiddenElements = document.querySelectorAll('.hidden');
-hiddenElements.forEach(el => observer.observe(el));
+  const hiddenElements = document.querySelectorAll('.hidden');
+  hiddenElements.forEach(el => window.hiddenElementsObserver.observe(el));
+}

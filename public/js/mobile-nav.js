@@ -388,20 +388,17 @@ class MobileNavigation {
   }
 }
 
-// Initialize mobile navigation when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  // Create global instance
-  window.mobileNav = new MobileNavigation();
-  
-  // Listen for page changes (for SPA-like behavior)
-  window.addEventListener('popstate', () => {
-    if (window.mobileNav) {
-      window.mobileNav.updateState();
-    }
+// Initialize mobile navigation when DOM is loaded - only if not already initialized
+if (!window.mobileNav) {
+  document.addEventListener('DOMContentLoaded', () => {
+    // Create global instance
+    window.mobileNav = new MobileNavigation();
+    
+    // Listen for page changes (for SPA-like behavior)
+    window.addEventListener('popstate', () => {
+      if (window.mobileNav) {
+        window.mobileNav.updateState();
+      }
+    });
   });
-});
-
-// Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = MobileNavigation;
 } 
