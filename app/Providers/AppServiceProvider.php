@@ -25,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
         if (env('APP_ENV') === 'production') {
             $this->forceHttpsForAssets();
         }
+        
+
     }
     
     /**
@@ -40,4 +42,6 @@ class AppServiceProvider extends ServiceProvider
             config(['app.url' => str_replace('http://', 'https://', config('app.url'))]);
         }
     }
+    
+
 }

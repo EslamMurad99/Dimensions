@@ -11,7 +11,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        // HTTPS middleware will be added later if needed
+        // Add CSP middleware to all web routes
+        $middleware->web(append: [
+            \App\Http\Middleware\CspMiddleware::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
