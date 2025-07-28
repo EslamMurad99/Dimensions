@@ -1,5 +1,8 @@
-#!/bin/bash
-# Wait until port is ready
+#!/bin/sh
+
+# Run migrations
 php artisan migrate --force
-sleep 1
-php -S 0.0.0.0:$PORT -t public
+
+# Serve Laravel using PHP-FPM & Nginx
+nginx -g "daemon off;" &
+php-fpm

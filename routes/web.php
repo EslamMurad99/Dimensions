@@ -12,13 +12,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 
-// Middleware to check if the application is in maintenance mode
-Route::get('/', function () {
-    return response('Laravel is working!', 200);
-});
-Route::get('/debug-log', function () {
-    return file_get_contents(storage_path('logs/laravel.log'));
-});
 // ✅ الصفحة الرئيسية
 Route::get('/', function () {
     return view('index');
@@ -29,10 +22,10 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
- Route::get('/contacts', function () {
+Route::get('/contacts', function () {
     return view('contact');
 })->name('contacts');
- 
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -55,7 +48,7 @@ Route::get('/projects', [HomeController::class, 'projects'])->name('projects');
 
 // ✅ لوحة تحكم الأدمن (Admin Panel)
 Route::prefix('admin')->name('admin.')->group(function () {
-   
+
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
     // Projects
@@ -92,4 +85,4 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 
 // ✅ مصادقة Laravel Breeze
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
