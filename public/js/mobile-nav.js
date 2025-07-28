@@ -3,11 +3,11 @@
  * Handles mobile navigation functionality with smooth animations and interactions
  */
 
-// Prevent duplicate class declaration
-if (typeof MobileNavigation !== 'undefined') {
+// Prevent duplicate class declaration and ensure global availability
+if (typeof window.MobileNavigation !== 'undefined') {
   console.log('MobileNavigation class already exists, skipping...');
 } else {
-  class MobileNavigation {
+  window.MobileNavigation = class MobileNavigation {
   constructor() {
     this.isActive = false;
     this.container = null;
@@ -401,8 +401,8 @@ if (!window.mobileNavLoaded) {
   // Initialize mobile navigation when DOM is loaded - only if not already initialized
   if (!window.mobileNav) {
     document.addEventListener('DOMContentLoaded', () => {
-      // Create global instance
-      window.mobileNav = new MobileNavigation();
+      // Create global instance using the global class
+      window.mobileNav = new window.MobileNavigation();
       
       // Listen for page changes (for SPA-like behavior)
       window.addEventListener('popstate', () => {
