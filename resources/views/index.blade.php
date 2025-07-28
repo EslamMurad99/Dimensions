@@ -4,13 +4,13 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <title>Dimensions Company for Operation and Maintenance </title>
   <meta name="description" content="Dimensions Company is a leading provider of comprehensive manpower solutions and event 
               planning services for the hospitality industry in Saudi Arabia since 2003.">
   <meta name="keywords" content="Dimensions">
 
-  <link href="{{ asset('images/LogoDimention.png') }}" rel="icon">
-  <!-- <link href="images/LogoDimention.png" rel="icon"> -->
+  <link href="{{ asset('images/LogoDimention.png') }}" rel="icon" type="image/png">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -284,9 +284,7 @@
     }
   </style>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- CDN links removed - using local vendor files instead -->
 
 </head>
 
@@ -863,40 +861,71 @@
   <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
   <script src="{{ asset('vendor/aos/aos.js') }}"></script>
   <script src="{{ asset('vendor/glightbox/js/glightbox.min.js') }}"></script>
-  <script src="{{ asset('vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ asset('vendor/swiper/swiper-bundle.min.js') }}" onerror="loadSwiperFromCDN()"></script>
   <script src="{{ asset('vendor/waypoints/noframework.waypoints.js') }}"></script>
   <script src="{{ asset('vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
   <script src="{{ asset('vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  
+  <!-- Fallback for Swiper if local file fails to load -->
+  <script>
+    function loadSwiperFromCDN() {
+      if (typeof Swiper === 'undefined') {
+        console.log('Loading Swiper from CDN...');
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
+        script.onload = function() {
+          console.log('Swiper loaded from CDN successfully');
+          // Re-initialize any Swiper instances that might have failed
+          if (window.projectStatsSwiper && typeof window.projectStatsSwiper.update === 'function') {
+            window.projectStatsSwiper.update();
+          }
+          if (window.clientsSwiper && typeof window.clientsSwiper.update === 'function') {
+            window.clientsSwiper.update();
+          }
+        };
+        document.head.appendChild(script);
+      }
+    }
+  </script>
 
   <!-- Main JS -->
   <script src="{{ asset('js/main.js') }}"></script>
   <script src="{{ asset('js/mobile-nav.js') }}"></script>
 
   <script>
-    var swiper = new Swiper(".projectStatsSwiper", {
-      slidesPerView: 3,
-      spaceBetween: 30,
-      loop: true,
-      navigation: {
-        nextEl: ".custom-next",
-        prevEl: ".custom-prev",
-      },
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-      },
-      breakpoints: {
-        0: { slidesPerView: 1 },
-        768: { slidesPerView: 2 },
-        992: { slidesPerView: 3 }
+    // Project stats swiper - using window to avoid conflicts
+    function initProjectStatsSwiper() {
+      if (typeof Swiper !== 'undefined' && !window.projectStatsSwiper) {
+        window.projectStatsSwiper = new Swiper(".projectStatsSwiper", {
+          slidesPerView: 3,
+          spaceBetween: 30,
+          loop: true,
+          navigation: {
+            nextEl: ".custom-next",
+            prevEl: ".custom-prev",
+          },
+          autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+          },
+          breakpoints: {
+            0: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            992: { slidesPerView: 3 }
+          }
+        });
       }
-    });
+    }
+    
+    // Try to initialize immediately, and also on DOMContentLoaded
+    initProjectStatsSwiper();
+    document.addEventListener('DOMContentLoaded', initProjectStatsSwiper);
   </script>
 
   <!-- Countup Animation Script -->
   <script>
-    // Intersection Observer for countup cards
-    const countupObserver = new IntersectionObserver((entries) => {
+    // Intersection Observer for countup cards - using window to avoid conflicts
+    window.countupObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
@@ -919,7 +948,7 @@
     // Observe all countup items
     document.addEventListener('DOMContentLoaded', function () {
       document.querySelectorAll('#project-stats .countup-item').forEach(item => {
-        countupObserver.observe(item);
+        window.countupObserver.observe(item);
       });
     });
 
@@ -1000,7 +1029,7 @@
         initClientUpload(newAddBtn);
 
         // تحديث swiper
-        if (window.clientsSwiper) {
+        if (window.clientsSwiper && typeof window.clientsSwiper.update === 'function') {
           window.clientsSwiper.update();
         }
       };
@@ -1013,22 +1042,29 @@
     document.querySelectorAll(".add-client-slide").forEach(initClientUpload);
   });
 
-  // إعداد سوايبر
-  const clientsSwiper = new Swiper(".init-swiper", {
-    slidesPerView: 4,
-    spaceBetween: 20,
-    loop: false,
-    navigation: {
-      nextEl: ".clients-next",
-      prevEl: ".clients-prev",
-    },
-    breakpoints: {
-      768: { slidesPerView: 4 },
-      576: { slidesPerView: 3 },
-      320: { slidesPerView: 2 }
+  // إعداد سوايبر - using window to avoid conflicts
+  function initClientsSwiper() {
+    if (!window.clientsSwiper && typeof Swiper !== 'undefined') {
+      window.clientsSwiper = new Swiper(".init-swiper", {
+        slidesPerView: 4,
+        spaceBetween: 20,
+        loop: false,
+        navigation: {
+          nextEl: ".clients-next",
+          prevEl: ".clients-prev",
+        },
+        breakpoints: {
+          768: { slidesPerView: 4 },
+          576: { slidesPerView: 3 },
+          320: { slidesPerView: 2 }
+        }
+      });
     }
-  });
-  window.clientsSwiper = clientsSwiper;
+  }
+  
+  // Try to initialize immediately, and also on DOMContentLoaded
+  initClientsSwiper();
+  document.addEventListener('DOMContentLoaded', initClientsSwiper);
 </script>
 
 

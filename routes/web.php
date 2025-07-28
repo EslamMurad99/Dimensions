@@ -84,5 +84,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
 });
 
 
+// Health check for Railway
+Route::get('/health', function () {
+    return response()->json([
+        'status' => 'healthy',
+        'timestamp' => now(),
+        'environment' => app()->environment(),
+        'version' => app()->version()
+    ]);
+});
+
 // ✅ مصادقة Laravel Breeze
 require __DIR__ . '/auth.php';

@@ -365,64 +365,21 @@ window.resetSplashScreen = function() {
 
 })();
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Initialize clients swiper with navigation
-  const clientsSwiper = new Swiper('.init-swiper', {
-    loop: true,
-    speed: 600,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    navigation: {
-      nextEl: '.clients-next',
-      prevEl: '.clients-prev',
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 2,
-        spaceBetween: 40
-      },
-      480: {
-        slidesPerView: 3,
-        spaceBetween: 60
-      },
-      640: {
-        slidesPerView: 4,
-        spaceBetween: 80
-      },
-      992: {
-        slidesPerView: 5,
-        spaceBetween: 120
-      },
-      1200: {
-        slidesPerView: 6,
-        spaceBetween: 120
-      }
-    }
-  });
-});
+// Clients swiper initialization moved to the main function to avoid duplicates
 
 
+// Intersection Observer for hidden elements
 const observer = new IntersectionObserver((entries) => {
-entries.forEach((entry) => {
-  console.log(entry)
-  if (entry.isIntersecting){
-    entry.target.classList.add('show');
-  }
-  else{
-    entry.target.classList.remove('show')
-  }
-})
+  entries.forEach((entry) => {
+    console.log(entry)
+    if (entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+    else{
+      entry.target.classList.remove('show')
+    }
+  })
+});
 
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach(el => observer.observe(el));
-
-}
-);

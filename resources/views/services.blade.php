@@ -18,7 +18,9 @@
   <link rel="stylesheet" href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('vendor/aos/aos.css') }}">
   <link rel="stylesheet" href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('vendor/swiper/swiper-bundle.min.css') }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- Swiper JS from CDN to ensure HTTPS and latest version -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="{{ asset('css/main.css') }}">
   <link rel="stylesheet" href="{{ asset('css/mobile-nav.css') }}">
   <link rel="stylesheet" href="{{ asset('css/services-parallax.css') }}">
