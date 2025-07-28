@@ -388,6 +388,13 @@ class MobileNavigation {
   }
 }
 
+// Prevent duplicate execution
+if (window.mobileNavLoaded) {
+  console.log('mobile-nav.js already loaded, skipping...');
+  return;
+}
+window.mobileNavLoaded = true;
+
 // Initialize mobile navigation when DOM is loaded - only if not already initialized
 if (!window.mobileNav) {
   document.addEventListener('DOMContentLoaded', () => {

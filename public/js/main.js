@@ -1,6 +1,13 @@
 (function () {
   "use strict";
 
+  // Prevent duplicate execution
+  if (window.mainJsLoaded) {
+    console.log('main.js already loaded, skipping...');
+    return;
+  }
+  window.mainJsLoaded = true;
+
   const body = document.body;
   const header = document.querySelector('#header');
   const scrollTopBtn = document.querySelector('.scroll-top');
@@ -11,158 +18,160 @@
   const skillsAnimations = document.querySelectorAll('.skills-animation');
   const isotopeLayouts = document.querySelectorAll('.isotope-layout');
 
+  window.addEventListener('DOMContentLoaded', () => {
+    console.log('DOMContentLoaded fired');
+    
+    // Only show splash screen on home page
+    const isHomePage = window.location.pathname === '/' || 
+                      window.location.pathname === '/index.html' || 
+                      window.location.pathname.endsWith('index.html');
+    
+    const intro = document.querySelector('.intro');
+    const logo = document.querySelector('.intro .logo');
 
-window.addEventListener('DOMContentLoaded', () => {
-  console.log('DOMContentLoaded fired');
-  
-  // Only show splash screen on home page
-  const isHomePage = window.location.pathname === '/' || 
-                    window.location.pathname === '/index.html' || 
-                    window.location.pathname.endsWith('index.html');
-  
-  const intro = document.querySelector('.intro');
-  const logo = document.querySelector('.intro .logo');
+    console.log('intro:', intro);
+    console.log('logo:', logo);
+    console.log('isHomePage:', isHomePage);
+    console.log('Current pathname:', window.location.pathname);
 
-  console.log('intro:', intro);
-  console.log('logo:', logo);
-  console.log('isHomePage:', isHomePage);
-  console.log('Current pathname:', window.location.pathname);
-
-  // If not home page or elements don't exist, hide splash screen immediately
-  if (!isHomePage || !intro || !logo) {
-    if (intro) {
-      intro.style.display = 'none';
+    // If not home page or elements don't exist, hide splash screen immediately
+    if (!isHomePage || !intro || !logo) {
+      if (intro) {
+        intro.style.display = 'none';
+      }
+      console.log('Splash screen hidden - not home page or elements not found');
+      return;
     }
-    console.log('Splash screen hidden - not home page or elements not found');
-    return;
-  }
 
-  // Check if this is an external visit (not from internal navigation)
-  const isExternalVisit = !sessionStorage.getItem('internal-navigation');
-  const referrer = document.referrer;
-  const isFromSameDomain = referrer && (referrer.includes(window.location.hostname) || referrer.includes('localhost'));
-  
-  console.log('Navigation info:', {
-    isExternalVisit,
-    referrer,
-    isFromSameDomain,
-    sessionStorage: sessionStorage.getItem('internal-navigation')
-  });
-
-  // Don't show splash screen if navigating internally
-  if (!isExternalVisit || isFromSameDomain) {
-    console.log('Internal navigation detected, hiding splash screen');
-    intro.style.display = 'none';
-    return;
-  }
-
-  console.log('External visit detected, showing splash screen...');
-
-  // Ensure the intro is visible and properly positioned
-  intro.style.display = 'flex';
-  intro.style.top = '0';
-  intro.style.zIndex = '9999';
-  
-  // Ensure logo starts in correct state
-  logo.style.opacity = '0';
-  logo.style.transform = 'translateY(20px)';
-  logo.classList.remove('logo-active', 'logo-fade');
-
-  console.log('Initial logo state:', {
-    opacity: logo.style.opacity,
-    transform: logo.style.transform,
-    classes: logo.className
-  });
-
-  // Start the animation sequence
-  setTimeout(() => {
-    console.log('Adding logo-active class...');
-    logo.classList.add('logo-active');
-    console.log('Logo classes after adding:', logo.className);
-    console.log('Logo computed styles:', {
-      opacity: getComputedStyle(logo).opacity,
-      transform: getComputedStyle(logo).transform
+    // Check if this is an external visit (not from internal navigation)
+    const isExternalVisit = !sessionStorage.getItem('internal-navigation');
+    const referrer = document.referrer;
+    const isFromSameDomain = referrer && (referrer.includes(window.location.hostname) || referrer.includes('localhost'));
+    
+    console.log('Navigation info:', {
+      isExternalVisit,
+      referrer,
+      isFromSameDomain,
+      sessionStorage: sessionStorage.getItem('internal-navigation')
     });
-    
-    // Fallback: If CSS transition doesn't work, use JavaScript animation
-    setTimeout(() => {
-      const computedOpacity = getComputedStyle(logo).opacity;
-      if (computedOpacity === '0') {
-        console.log('CSS transition failed, using JavaScript fallback');
-        logo.style.opacity = '1';
-        logo.style.transform = 'translateY(0)';
-      }
-    }, 200);
-  }, 100);
 
-  // Fade out the logo
-  setTimeout(() => {
-    console.log('Adding logo-fade class...');
-    logo.classList.remove('logo-active');
-    logo.classList.add('logo-fade');
-    console.log('Logo classes after fade:', logo.className);
-    
-    // Fallback: If CSS transition doesn't work, use JavaScript animation
-    setTimeout(() => {
-      const computedOpacity = getComputedStyle(logo).opacity;
-      if (computedOpacity === '1') {
-        console.log('CSS fade transition failed, using JavaScript fallback');
-        logo.style.opacity = '0';
-        logo.style.transform = 'translateY(-20px)';
-      }
-    }, 200);
-  }, 3000);
-
-  // Hide the splash screen
-  setTimeout(() => {
-    console.log('Moving intro up...');
-    intro.style.top = '-100vh';
-    
-    // Remove the intro element after animation completes
-    setTimeout(() => {
+    // Don't show splash screen if navigating internally
+    if (!isExternalVisit || isFromSameDomain) {
+      console.log('Internal navigation detected, hiding splash screen');
       intro.style.display = 'none';
-      console.log('Splash screen completely hidden');
-    }, 1000);
-  }, 3500);
-  
-  // Fallback: Force hide splash screen after 5 seconds
-  setTimeout(() => {
-    if (intro.style.display !== 'none') {
-      console.log('Fallback: Forcing splash screen to hide');
-      intro.style.display = 'none';
-      intro.style.top = '-100vh';
+      return;
     }
-  }, 5000);
-});
 
-// Track internal navigation
-document.addEventListener('DOMContentLoaded', () => {
-  // Mark internal navigation for all navigation links
-  const navLinks = document.querySelectorAll('a[href], .navmenu a, .mobile-nav-link');
-  
-  navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      const href = link.getAttribute('href');
+    console.log('External visit detected, showing splash screen...');
+
+    // Ensure the intro is visible and properly positioned
+    intro.style.display = 'flex';
+    intro.style.top = '0';
+    intro.style.zIndex = '9999';
+    
+    // Ensure logo starts in correct state
+    logo.style.opacity = '0';
+    logo.style.transform = 'translateY(20px)';
+    logo.classList.remove('logo-active', 'logo-fade');
+
+    console.log('Initial logo state:', {
+      opacity: logo.style.opacity,
+      transform: logo.style.transform,
+      classes: logo.className
+    });
+
+    // Start the animation sequence - prevent duplicate execution
+    if (!window.splashAnimationStarted) {
+      window.splashAnimationStarted = true;
       
-      // Only mark as internal if it's a link to the same site
-      if (href && (href.startsWith('#') || 
-                   href.startsWith('./') || 
-                   href.startsWith('/') || 
-                   href.includes(window.location.hostname) ||
-                   href.endsWith('.html'))) {
-        console.log('Internal navigation detected:', href);
-        sessionStorage.setItem('internal-navigation', 'true');
-      }
+      setTimeout(() => {
+        console.log('Adding logo-active class...');
+        logo.classList.add('logo-active');
+        console.log('Logo classes after adding:', logo.className);
+        console.log('Logo computed styles:', {
+          opacity: getComputedStyle(logo).opacity,
+          transform: getComputedStyle(logo).transform
+        });
+        
+        // Fallback: If CSS transition doesn't work, use JavaScript animation
+        setTimeout(() => {
+          const computedOpacity = getComputedStyle(logo).opacity;
+          if (computedOpacity === '0') {
+            console.log('CSS transition failed, using JavaScript fallback');
+            logo.style.opacity = '1';
+            logo.style.transform = 'translateY(0)';
+          }
+        }, 200);
+      }, 100);
+
+      // Fade out the logo
+      setTimeout(() => {
+        console.log('Adding logo-fade class...');
+        logo.classList.remove('logo-active');
+        logo.classList.add('logo-fade');
+        console.log('Logo classes after fade:', logo.className);
+        
+        // Fallback: If CSS transition doesn't work, use JavaScript animation
+        setTimeout(() => {
+          const computedOpacity = getComputedStyle(logo).opacity;
+          if (computedOpacity === '1') {
+            console.log('CSS fade transition failed, using JavaScript fallback');
+            logo.style.opacity = '0';
+            logo.style.transform = 'translateY(-20px)';
+          }
+        }, 200);
+      }, 3000);
+
+      // Hide the splash screen
+      setTimeout(() => {
+        console.log('Moving intro up...');
+        intro.style.top = '-100vh';
+        
+        // Remove the intro element after animation completes
+        setTimeout(() => {
+          intro.style.display = 'none';
+          console.log('Splash screen completely hidden');
+        }, 1000);
+      }, 3500);
+      
+      // Fallback: Force hide splash screen after 5 seconds
+      setTimeout(() => {
+        if (intro.style.display !== 'none') {
+          console.log('Fallback: Forcing splash screen to hide');
+          intro.style.display = 'none';
+          intro.style.top = '-100vh';
+        }
+      }, 5000);
+    }
+  });
+
+  // Track internal navigation
+  document.addEventListener('DOMContentLoaded', () => {
+    // Mark internal navigation for all navigation links
+    const allNavLinks = document.querySelectorAll('a[href], .navmenu a, .mobile-nav-link');
+    
+    allNavLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        
+        // Only mark as internal if it's a link to the same site
+        if (href && (href.startsWith('#') || 
+                     href.startsWith('./') || 
+                     href.startsWith('/') || 
+                     href.includes(window.location.hostname) ||
+                     href.endsWith('.html'))) {
+          console.log('Internal navigation detected:', href);
+          sessionStorage.setItem('internal-navigation', 'true');
+        }
+      });
     });
   });
-});
 
-// Test function to reset splash screen (for development/testing)
-window.resetSplashScreen = function() {
-  sessionStorage.removeItem('internal-navigation');
-  console.log('Splash screen reset. Refresh the page to see it again.');
-};
-
+  // Test function to reset splash screen (for development/testing)
+  window.resetSplashScreen = function() {
+    sessionStorage.removeItem('internal-navigation');
+    console.log('Splash screen reset. Refresh the page to see it again.');
+  };
 
   function toggleScrolled() {
     if (!header.classList.contains('scroll-up-sticky') &&
@@ -249,53 +258,26 @@ window.resetSplashScreen = function() {
         }
       }
     });
-
-    // Store the Swiper instance for debugging
-    window.clientsSwiper = clientsSwiper;
   }
 
   function aosInit() {
-    AOS.init({
-      duration: 600,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
+    window.addEventListener('load', () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease-in-out",
+        once: true,
+        mirror: false
+      });
     });
   }
 
   function initParallax() {
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      document.documentElement.style.setProperty('--scroll-offset', scrolled);
-    });
+    // Parallax initialization if needed
   }
 
-  /* أحداث الصفحة */
-  document.addEventListener('scroll', () => {
-    toggleScrolled();
-    toggleScrollTop();
-    navmenuScrollspy();
-  });
-
-  window.addEventListener('load', () => {
-    toggleScrolled();
-    toggleScrollTop();
-    navmenuScrollspy();
-    aosInit();
-    initSwiper();
-    initClientsSwiper();
-    initParallax();
-    if (document.querySelector('#preloader')) {
-      document.querySelector('#preloader').remove();
-    }
-  });
-
-  if (scrollTopBtn) {
-    scrollTopBtn.addEventListener('click', e => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
+  // Event listeners
+  window.addEventListener('scroll', toggleScrolled);
+  window.addEventListener('scroll', toggleScrollTop);
 
   // Mobile navigation events are now handled by mobile-nav.js
   // if (mobileNavToggleBtn) {
@@ -375,7 +357,6 @@ window.resetSplashScreen = function() {
 })();
 
 // Clients swiper initialization moved to the main function to avoid duplicates
-
 
 // Intersection Observer for hidden elements - using window to avoid conflicts
 if (!window.hiddenElementsObserver) {
