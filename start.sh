@@ -1,5 +1,5 @@
 #!/bin/bash
-
-php artisan config:cache
+# Wait until port is ready
 php artisan migrate --force
-php artisan serve --host=0.0.0.0 --port=8080
+sleep 1
+php -S 0.0.0.0:$PORT -t public
