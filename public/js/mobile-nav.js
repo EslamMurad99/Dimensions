@@ -388,24 +388,24 @@ class MobileNavigation {
   }
 }
 
-// Prevent duplicate execution
-if (window.mobileNavLoaded) {
-  console.log('mobile-nav.js already loaded, skipping...');
-  return;
-}
-window.mobileNavLoaded = true;
-
-// Initialize mobile navigation when DOM is loaded - only if not already initialized
-if (!window.mobileNav) {
-  document.addEventListener('DOMContentLoaded', () => {
-    // Create global instance
-    window.mobileNav = new MobileNavigation();
-    
-    // Listen for page changes (for SPA-like behavior)
-    window.addEventListener('popstate', () => {
-      if (window.mobileNav) {
-        window.mobileNav.updateState();
-      }
+// Prevent duplicate execution and initialize mobile navigation
+if (!window.mobileNavLoaded) {
+  window.mobileNavLoaded = true;
+  
+  // Initialize mobile navigation when DOM is loaded - only if not already initialized
+  if (!window.mobileNav) {
+    document.addEventListener('DOMContentLoaded', () => {
+      // Create global instance
+      window.mobileNav = new MobileNavigation();
+      
+      // Listen for page changes (for SPA-like behavior)
+      window.addEventListener('popstate', () => {
+        if (window.mobileNav) {
+          window.mobileNav.updateState();
+        }
+      });
     });
-  });
+  }
+} else {
+  console.log('mobile-nav.js already loaded, skipping...');
 } 
