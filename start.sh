@@ -1,8 +1,9 @@
 #!/bin/sh
 
-# Run migrations
+# Ensure Laravel is bootstrapped properly
+php artisan config:clear
+php artisan config:cache
 php artisan migrate --force
 
-# Serve Laravel using PHP-FPM & Nginx
-nginx -g "daemon off;" &
-php-fpm
+# Start PHP built-in server — production-compatible entrypoint
+exec php -S 0.0.0.0:$PORT -t public server.php
