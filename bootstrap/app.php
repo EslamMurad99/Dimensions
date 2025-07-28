@@ -11,13 +11,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        $middleware->alias([
-            'force.https' => \App\Http\Middleware\ForceHttps::class,
-        ]);
-        
-        if (app()->environment('production')) {
-            $middleware->append(\App\Http\Middleware\ForceHttps::class);
-        }
+        // HTTPS middleware will be added later if needed
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

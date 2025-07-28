@@ -10,7 +10,7 @@ This guide helps you deploy the Dimensions Laravel application to Railway and fi
 - **Solution**: 
   - Added `Content-Security-Policy` meta tag to force HTTPS
   - Removed duplicate CDN links that were conflicting with local vendor files
-  - Added HTTPS middleware for production
+  - Added HTTPS redirection in AppServiceProvider for production
 
 ### 2. Swiper.js Not Defined
 - **Problem**: Swiper library wasn't loading properly
@@ -106,8 +106,8 @@ php debug-railway.php
 - `public/js/mobile-nav.js`: No changes needed
 
 ### Backend Fixes
-- `bootstrap/app.php`: Added HTTPS middleware
-- `app/Http/Middleware/ForceHttps.php`: New middleware for HTTPS enforcement
+- `bootstrap/app.php`: Simplified middleware configuration
+- `app/Providers/AppServiceProvider.php`: Added HTTPS redirection for production
 - `routes/web.php`: Added health check endpoint
 - `Procfile`: Updated to use `$PORT` variable
 
