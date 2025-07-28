@@ -4,7 +4,6 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <title>Dimensions Company for Operation and Maintenance </title>
   <meta name="description" content="Dimensions Company is a leading provider of comprehensive manpower solutions and event 
               planning services for the hospitality industry in Saudi Arabia since 2003.">

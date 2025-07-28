@@ -21,25 +21,7 @@ class AppServiceProvider extends ServiceProvider
     {
         app()->setLocale(session('locale', config('app.locale')));
         
-        // Force HTTPS in production
-        if (env('APP_ENV') === 'production' && !request()->secure()) {
-            $this->forceHttps();
-        }
-    }
-    
-    /**
-     * Force HTTPS redirection
-     */
-    private function forceHttps(): void
-    {
-        if (request()->isMethod('get')) {
-            $url = request()->getRequestUri();
-            $secureUrl = 'https://' . request()->getHost() . $url;
-            
-            if (request()->url() !== $secureUrl) {
-                redirect()->secure($url)->send();
-                exit;
-            }
-        }
+        // HTTPS redirection disabled for now to fix redirect loop
+        // Railway handles HTTPS automatically, so we don't need to force it
     }
 }
