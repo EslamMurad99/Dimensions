@@ -21,7 +21,23 @@ class AppServiceProvider extends ServiceProvider
     {
         app()->setLocale(session('locale', config('app.locale')));
         
-        // HTTPS redirection disabled for now to fix redirect loop
-        // Railway handles HTTPS automatically, so we don't need to force it
+        // Force HTTPS for all asset URLs in production
+        if (env('APP_ENV') === 'production') {
+            $this->forceHttpsForAssets();
+        }
+    }
+    
+    /**
+     * Force HTTPS for asset URLs
+     */
+    private function forceHttpsForAssets(): void
+    {
+        // Override the asset helper to always use HTTPS
+        \Illuminate\Support\Facades\URL::forceScheme('https');
+        
+        // Also force HTTPS for the application URL
+        if (config('app.url') && !str_starts_with(config('app.url'), 'https://')) {
+            config(['app.url' => str_replace('http://', 'https://', config('app.url'))]);
+        }
     }
 }
