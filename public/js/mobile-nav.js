@@ -3,7 +3,11 @@
  * Handles mobile navigation functionality with smooth animations and interactions
  */
 
-class MobileNavigation {
+// Prevent duplicate class declaration
+if (typeof MobileNavigation !== 'undefined') {
+  console.log('MobileNavigation class already exists, skipping...');
+} else {
+  class MobileNavigation {
   constructor() {
     this.isActive = false;
     this.container = null;
@@ -386,7 +390,9 @@ class MobileNavigation {
     }
     document.body.classList.remove('mobile-nav-active');
   }
-}
+} // End of MobileNavigation class
+
+} // End of if (typeof MobileNavigation !== 'undefined') else block
 
 // Prevent duplicate execution and initialize mobile navigation
 if (!window.mobileNavLoaded) {
