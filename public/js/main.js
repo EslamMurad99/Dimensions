@@ -183,6 +183,18 @@
     console.log('Splash screen reset. Refresh the page to see it again.');
   };
 
+  // Hide preloader when page is fully loaded
+  window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      preloader.style.opacity = '0';
+      preloader.style.visibility = 'hidden';
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 600);
+    }
+  });
+
   function toggleScrolled() {
     if (!header.classList.contains('scroll-up-sticky') &&
         !header.classList.contains('sticky-top') &&
