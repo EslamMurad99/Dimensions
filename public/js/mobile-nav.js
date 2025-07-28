@@ -47,7 +47,7 @@ if (typeof window.MobileNavigation !== 'undefined') {
       <div class="mobile-nav-menu">
         <div class="mobile-nav-header">
           <div class="mobile-nav-logo">
-            <img src="/images/DimensionsLogo.png" alt="Dimensions Logo">
+            <img src="images/DimensionsLogo.png" alt="Dimensions Logo">
           </div>
           <button class="mobile-nav-close" aria-label="Close mobile navigation">
             <i class="bi bi-x-lg"></i>

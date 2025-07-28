@@ -10,7 +10,7 @@
               planning services for the hospitality industry in Saudi Arabia since 2003.">
   <meta name="keywords" content="Dimensions">
 
-  <link href="{{ secure_asset('images/LogoDimention.png') }}" rel="icon" type="image/png">
+  <link href="{{ asset('images/LogoDimention.png') }}" rel="icon" type="image/png">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -21,15 +21,15 @@
 
 
   <!-- Vendor CSS Files -->
-  <link rel="stylesheet" href="{{ secure_asset('vendor/bootstrap/css/bootstrap.min.css') }}">
-  <link rel="stylesheet" href="{{ secure_asset('vendor/bootstrap-icons/bootstrap-icons.css') }}">
-  <link rel="stylesheet" href="{{ secure_asset('vendor/aos/aos.css') }}">
-  <link rel="stylesheet" href="{{ secure_asset('vendor/glightbox/css/glightbox.min.css') }}">
-  <link rel="stylesheet" href="{{ secure_asset('vendor/swiper/swiper-bundle.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}">
+  <link rel="stylesheet" href="{{ asset('vendor/aos/aos.css') }}">
+  <link rel="stylesheet" href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('vendor/swiper/swiper-bundle.min.css') }}">
 
   <!-- MAin CSS -->
-  <link rel="stylesheet" href="{{ secure_asset('css/main.css') }}">
-  <link rel="stylesheet" href="{{ secure_asset('css/mobile-nav.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/mobile-nav.css') }}">
 
   <!-- Countup Section Styles -->
   <style>
@@ -292,14 +292,14 @@
   <!-- Splash screen should be here, before header -->
   <div class="intro">
     <h1 class="logo-header">
-      <img src="{{ secure_asset('images/DimensionsLogo.png') }}" alt="Dimensions Logo" class="logo">
+      <img src="{{ asset('images/DimensionsLogo.png') }}" alt="Dimensions Logo" class="logo">
     </h1>
   </div>
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
       <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <img src="{{ secure_asset('images/DimensionsLogo.png') }}" alt="Dimensions Logo" class="logo">
+        <img src="{{ asset('images/DimensionsLogo.png') }}" alt="Dimensions Logo" class="logo">
       </a>
        <nav id="navmenu" class="navmenu">
          <ul>
@@ -319,7 +319,7 @@
 
     <section id="hero" class="hero section">
       <div class="hero-bg-image">
-        <img src="{{ secure_asset('images/WhatsApp Image 2024-12-26 at 15.35.42_e96285a6.jpg') }}" alt="Hero Background"
+        <img src="{{ asset('images/WhatsApp Image 2024-12-26 at 15.35.42_e96285a6.jpg') }}" alt="Hero Background"
           class="bg-image">
         <div class="bg-overlay"></div>
       </div>
@@ -340,7 +340,7 @@
           <!-- الصورة على اليمين -->
           <div class="col-lg-6" data-aos="fade-left">
             <div class="hero-image-container">
-              <img src="{{ secure_asset('images/DimensionsLogo.png') }}" alt="Dimensions Company" class="hero-image">
+              <img src="{{ asset('images/DimensionsLogo.png') }}" alt="Dimensions Company" class="hero-image">
             </div>
           </div>
         </div>
@@ -856,14 +856,14 @@
 
 
   <!-- Vendor JS Files -->
-  <script src="{{ secure_asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ secure_asset('vendor/php-email-form/validate.js') }}"></script>
-  <script src="{{ secure_asset('vendor/aos/aos.js') }}"></script>
-  <script src="{{ secure_asset('vendor/glightbox/js/glightbox.min.js') }}"></script>
-  <script src="{{ secure_asset('vendor/swiper/swiper-bundle.min.js') }}" onerror="loadSwiperFromCDN()"></script>
-  <script src="{{ secure_asset('vendor/waypoints/noframework.waypoints.js') }}"></script>
-  <script src="{{ secure_asset('vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-  <script src="{{ secure_asset('vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ asset('vendor/aos/aos.js') }}"></script>
+  <script src="{{ asset('vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ asset('vendor/swiper/swiper-bundle.min.js') }}" onerror="loadSwiperFromCDN()"></script>
+  <script src="{{ asset('vendor/waypoints/noframework.waypoints.js') }}"></script>
+  <script src="{{ asset('vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+  <script src="{{ asset('vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
   
   <!-- Fallback for Swiper if local file fails to load -->
   <script>
@@ -888,8 +888,8 @@
   </script>
 
   <!-- Main JS -->
-  <script src="{{ secure_asset('js/main.js') }}"></script>
-  <script src="{{ secure_asset('js/mobile-nav.js') }}"></script>
+  <script src="{{ asset('js/main.js') }}"></script>
+  <script src="{{ asset('js/mobile-nav.js') }}"></script>
 
   <script>
     // Project stats swiper - using window to avoid conflicts
