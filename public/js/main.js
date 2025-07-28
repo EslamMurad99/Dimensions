@@ -8,6 +8,40 @@
   }
   window.mainJsLoaded = true;
 
+  // Force hide splash screen and ensure main content visibility
+  function forceContentVisibility() {
+    const intro = document.querySelector('.intro');
+    const main = document.querySelector('main');
+    
+    if (intro) {
+      intro.style.display = 'none';
+      intro.style.visibility = 'hidden';
+      intro.style.opacity = '0';
+      intro.style.top = '-100vh';
+      intro.style.zIndex = '-1';
+    }
+    
+    if (main) {
+      main.style.display = 'block';
+      main.style.visibility = 'visible';
+      main.style.opacity = '1';
+      main.style.position = 'relative';
+      main.style.zIndex = '1';
+    }
+    
+    // Ensure all sections are visible
+    document.querySelectorAll('section').forEach(section => {
+      section.style.display = 'block';
+      section.style.visibility = 'visible';
+      section.style.opacity = '1';
+    });
+    
+    console.log('Forced content visibility');
+  }
+
+  // Call immediately to ensure content is visible
+  forceContentVisibility();
+
   const body = document.body;
   const header = document.querySelector('#header');
   const scrollTopBtn = document.querySelector('.scroll-top');
@@ -20,6 +54,17 @@
 
   window.addEventListener('DOMContentLoaded', () => {
     console.log('DOMContentLoaded fired');
+    
+    // Ensure main content is always visible
+    const main = document.querySelector('main');
+    if (main) {
+      main.style.display = 'block';
+      main.style.visibility = 'visible';
+      main.style.opacity = '1';
+    }
+    
+    // Force content visibility again on DOMContentLoaded
+    forceContentVisibility();
     
     // Only show splash screen on home page
     const isHomePage = window.location.pathname === '/' || 
@@ -38,6 +83,8 @@
     if (!isHomePage || !intro || !logo) {
       if (intro) {
         intro.style.display = 'none';
+        intro.style.visibility = 'hidden';
+        intro.style.opacity = '0';
       }
       console.log('Splash screen hidden - not home page or elements not found');
       return;
@@ -59,6 +106,8 @@
     if (!isExternalVisit || isFromSameDomain) {
       console.log('Internal navigation detected, hiding splash screen');
       intro.style.display = 'none';
+      intro.style.visibility = 'hidden';
+      intro.style.opacity = '0';
       return;
     }
 
@@ -66,6 +115,8 @@
 
     // Ensure the intro is visible and properly positioned
     intro.style.display = 'flex';
+    intro.style.visibility = 'visible';
+    intro.style.opacity = '1';
     intro.style.top = '0';
     intro.style.zIndex = '9999';
     
@@ -88,6 +139,9 @@
       const splashTimeout = setTimeout(() => {
         console.log('Splash screen timeout reached, forcing hide');
         intro.style.display = 'none';
+        intro.style.visibility = 'hidden';
+        intro.style.opacity = '0';
+        forceContentVisibility();
       }, 10000); // 10 second timeout
       
       setTimeout(() => {
@@ -139,6 +193,9 @@
         // Remove the intro element after animation completes
         setTimeout(() => {
           intro.style.display = 'none';
+          intro.style.visibility = 'hidden';
+          intro.style.opacity = '0';
+          forceContentVisibility();
           console.log('Splash screen completely hidden');
         }, 1000);
       }, 3500);
@@ -148,7 +205,10 @@
         if (intro.style.display !== 'none') {
           console.log('Fallback: Forcing splash screen to hide');
           intro.style.display = 'none';
+          intro.style.visibility = 'hidden';
+          intro.style.opacity = '0';
           intro.style.top = '-100vh';
+          forceContentVisibility();
           clearTimeout(splashTimeout);
         }
       }, 5000);
@@ -181,6 +241,19 @@
   window.resetSplashScreen = function() {
     sessionStorage.removeItem('internal-navigation');
     console.log('Splash screen reset. Refresh the page to see it again.');
+  };
+
+  // Force hide splash screen function for debugging
+  window.forceHideSplash = function() {
+    const intro = document.querySelector('.intro');
+    if (intro) {
+      intro.style.display = 'none';
+      intro.style.visibility = 'hidden';
+      intro.style.opacity = '0';
+      intro.style.top = '-100vh';
+      console.log('Splash screen forcefully hidden');
+    }
+    forceContentVisibility();
   };
 
 

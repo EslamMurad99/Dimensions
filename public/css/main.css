@@ -30,6 +30,28 @@
 .d-block {
   display: block !important;
 }
+
+/* Ensure main content is always visible */
+main {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Ensure all sections are visible */
+section {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Debug styles - add red border to see if elements are positioned correctly */
+.debug * {
+  border: 1px solid red !important;
+}
+
 /* Variables and Defaults */
 :root {
   /* Fonts */
@@ -3380,6 +3402,18 @@ h1 {
   align-items: center;
   justify-content: center;
   transition: top 1s ease-in-out;
+}
+
+/* Force hide splash screen when needed */
+.intro.hidden,
+.intro[style*="display: none"],
+.intro[style*="visibility: hidden"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  top: -100vh !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
 }
 
 /* Hide splash screen on non-home pages */

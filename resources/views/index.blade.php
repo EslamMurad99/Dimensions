@@ -289,11 +289,111 @@
 </head>
 
 <body class="index-page">
+  <!-- Immediate script to ensure content visibility -->
+  <script>
+    // Force content visibility immediately
+    (function() {
+      const intro = document.querySelector('.intro');
+      const main = document.querySelector('main');
+      
+      if (intro) {
+        intro.style.display = 'none';
+        intro.style.visibility = 'hidden';
+        intro.style.opacity = '0';
+        intro.style.top = '-100vh';
+        intro.style.zIndex = '-1';
+      }
+      
+      if (main) {
+        main.style.display = 'block';
+        main.style.visibility = 'visible';
+        main.style.opacity = '1';
+        main.style.position = 'relative';
+        main.style.zIndex = '1';
+      }
+      
+      // Ensure all sections are visible
+      document.querySelectorAll('section').forEach(section => {
+        section.style.display = 'block';
+        section.style.visibility = 'visible';
+        section.style.opacity = '1';
+      });
+      
+      console.log('Immediate content visibility fix applied');
+    })();
+    
+    // Debug function to check content visibility
+    window.debugContent = function() {
+      const intro = document.querySelector('.intro');
+      const main = document.querySelector('main');
+      const sections = document.querySelectorAll('section');
+      
+      console.log('=== Content Visibility Debug ===');
+      console.log('Intro element:', intro);
+      if (intro) {
+        console.log('Intro styles:', {
+          display: intro.style.display,
+          visibility: intro.style.visibility,
+          opacity: intro.style.opacity,
+          top: intro.style.top,
+          zIndex: intro.style.zIndex
+        });
+      }
+      
+      console.log('Main element:', main);
+      if (main) {
+        console.log('Main styles:', {
+          display: main.style.display,
+          visibility: main.style.visibility,
+          opacity: main.style.opacity,
+          position: main.style.position,
+          zIndex: main.style.zIndex
+        });
+      }
+      
+      console.log('Sections found:', sections.length);
+      sections.forEach((section, index) => {
+        console.log(`Section ${index + 1}:`, {
+          display: section.style.display,
+          visibility: section.style.visibility,
+          opacity: section.style.opacity,
+          id: section.id,
+          className: section.className
+        });
+      });
+      
+      // Force visibility if needed
+      if (intro && intro.style.display !== 'none') {
+        console.log('Forcing intro to hide...');
+        intro.style.display = 'none';
+        intro.style.visibility = 'hidden';
+        intro.style.opacity = '0';
+      }
+      
+      if (main && main.style.display !== 'block') {
+        console.log('Forcing main to show...');
+        main.style.display = 'block';
+        main.style.visibility = 'visible';
+        main.style.opacity = '1';
+      }
+    };
+    
+    // Auto-debug after 2 seconds
+    setTimeout(() => {
+      window.debugContent();
+    }, 2000);
+  </script>
+  
   <!-- Splash screen should be here, before header -->
-  <div class="intro">
+  <div class="intro" style="display: none;">
     <h1 class="logo-header">
       <img src="{{ secure_asset('images/DimensionsLogo.png') }}" alt="Dimensions Logo" class="logo">
     </h1>
+  </div>
+  
+  <!-- Temporary debug element to test if content is loading -->
+  <div style="position: fixed; top: 10px; right: 10px; background: red; color: white; padding: 10px; z-index: 10000; font-size: 12px;">
+    Content Test - If you see this, content is loading
   </div>
 
   <header id="header" class="header d-flex align-items-center fixed-top">
