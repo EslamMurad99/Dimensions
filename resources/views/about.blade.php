@@ -126,11 +126,35 @@
                 solutions with our dedicated event management services, we ensure your event is a resounding
                 success.
               </p>
+
+                <!-- Upload + Saved Articles UI -->
+                <div class="text-center mt-4">
+                  <button class="btn btn-primary mb-2 me-2" onclick="document.getElementById('uploadModal').style.display='block'">
+                    Upload Article
+                  </button>
+                  <button class="btn btn-danger mb-2" onclick="resetSavedFiles()">
+                    Reset Saved Files
+                  </button>
+                  <div id="savedArticles" class="d-flex flex-wrap justify-content-center gap-2 mt-3"></div>
+                </div>
+
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Modal To Read Articles Files -->
+    <div id="uploadModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.7); z-index:9999; overflow:auto;">
+      <div style="background:#fff; margin:10% auto; padding:20px; border-radius:10px; width:80%; max-width:600px; position:relative;">
+        <h4>Read Article</h4>
+        <input type="file" accept=".txt,.pdf" onchange="handleFile(this)" class="form-control mb-3">
+        <div id="fileContent" style="max-height:400px; overflow:auto; border:1px solid #ccc; padding:10px; border-radius:5px;"></div>
+        <div class="text-end mt-3">
+          <button class="btn btn-danger" onclick="document.getElementById('uploadModal').style.display='none'">Close</button>
+        </div>
+      </div>
+    </div>
 
     <!-- About Us Section from Home Page -->
     <section id="about" class="about section">
@@ -260,6 +284,86 @@
   <script src="{{ asset('vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
   <script src="{{ asset('js/main.js') }}"></script>
   <script src="{{ asset('js/mobile-nav.js') }}"></script>
+
+  
+  <!-- Script To Articles Files -->
+  <script>
+    // حفظ الملف
+    function handleFile(input) {
+      const file = input.files[0];
+      if (!file) return;
+
+      const fileContentDiv = document.getElementById('fileContent');
+      fileContentDiv.innerHTML = '<em>Loading...</em>';
+
+      const reader = new FileReader();
+
+      if (file.type === "application/pdf") {
+        reader.onload = function (e) {
+          const pdfData = e.target.result;
+          fileContentDiv.innerHTML = `<embed src="${pdfData}" type="application/pdf" width="100%" height="400px"/>`;
+          saveFile(file.name, pdfData, 'pdf');
+        };
+        reader.readAsDataURL(file);
+      } else if (file.type === "text/plain") {
+        reader.onload = function (e) {
+          const text = e.target.result;
+          fileContentDiv.textContent = text;
+          saveFile(file.name, text, 'text');
+        };
+        reader.readAsText(file);
+      } else {
+        fileContentDiv.innerHTML = "<span class='text-danger'>Unsupported file type. Please upload .pdf or .txt</span>";
+      }
+    }
+
+    // حفظ في localStorage
+    function saveFile(name, content, type) {
+      const saved = JSON.parse(localStorage.getItem('savedArticles') || '[]');
+      saved.push({ name, content, type });
+      localStorage.setItem('savedArticles', JSON.stringify(saved));
+      renderSavedArticles();
+    }
+
+    // عرض المقالات المحفوظة
+    function renderSavedArticles() {
+      const container = document.getElementById('savedArticles');
+      container.innerHTML = '';
+      const saved = JSON.parse(localStorage.getItem('savedArticles') || '[]');
+
+      if (saved.length === 0) return;
+
+      saved.forEach((file, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-outline-secondary';
+        btn.textContent = file.name;
+        btn.onclick = () => openSavedArticle(file);
+        container.appendChild(btn);
+      });
+    }
+
+    // فتح المقال المحفوظ داخل الـ Modal
+    function openSavedArticle(file) {
+      const fileContentDiv = document.getElementById('fileContent');
+      if (file.type === 'pdf') {
+        fileContentDiv.innerHTML = `<embed src="${file.content}" type="application/pdf" width="100%" height="400px"/>`;
+      } else {
+        fileContentDiv.textContent = file.content;
+      }
+      document.getElementById('uploadModal').style.display = 'block';
+    }
+
+    // زرار الريست لحذف كل الملفات المحفوظة
+      function resetSavedFiles() {
+        if (confirm("Are you sure you want to delete all saved articles?")) {
+          localStorage.removeItem('savedArticles');
+          renderSavedArticles(); // إعادة تحديث واجهة العرض
+        }
+      }
+
+    // عند تحميل الصفحة
+    document.addEventListener('DOMContentLoaded', renderSavedArticles);
+  </script>
 
 </body>
 

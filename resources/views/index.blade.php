@@ -334,6 +334,9 @@
               Dimensions Company is a leading provider of comprehensive manpower solutions and event
               planning services for the hospitality industry in Saudi Arabia since 2003.
             </p>
+            <a href="{{ route('about') }}">
+            <button class="btn btn-primary mb-2 me-2">Add Articles Files</button>
+            </a>
           </div>
 
           <!-- الصورة على اليمين -->
@@ -445,7 +448,7 @@
 
         <div class="swiper init-swiper">
           <!-- Remove the JSON config script -->
-          <div class="swiper-wrapper align-items-center">
+          <div class="swiper-wrapper align-items-center" id="clients-wrapper">
             <div class="swiper-slide"><img src="{{ asset('images/clients/c1.png') }}" class="img-fluid" alt="client 1"
                 loading="lazy"></div>
             <div class="swiper-slide"><img src="{{ asset('images/clients/c2.png') }}" class="img-fluid" alt="client 2"
@@ -478,6 +481,15 @@
                 alt="client 7" loading="lazy"></div>
             <div class="swiper-slide"><img src="{{ asset('images/clients/clients-8.webp') }}" class="img-fluid"
                 alt="client 8" loading="lazy"></div>
+              <!-- Initial Add Button as c-panel to control our clients -->
+              <div class="swiper-slide d-flex align-items-center justify-content-center add-client-slide">
+                <label style="cursor: pointer;">
+                  <div style="width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #999;">
+                    +
+                  </div>
+                  <input type="file" accept="image/*" class="client-upload-input" style="display: none;">
+                </label>
+              </div>
           </div>
         </div>
       </div>
@@ -768,10 +780,6 @@
     </section>
     <!-- /Numbers and Experience-->
 
-
-
-
-
   </main>
 
   <footer id="footer" class="footer">
@@ -959,6 +967,69 @@
       requestAnimationFrame(updateCounter);
     }
   </script>
+
+<script>
+  // logic from c-panel to control our clients
+  function initClientUpload(addBtnDiv) {
+    const input = addBtnDiv.querySelector(".client-upload-input");
+    input.addEventListener("change", function (e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        // استبدل زر + بالصورة
+        addBtnDiv.classList.remove("add-client-slide");
+        addBtnDiv.innerHTML = `<img src="${event.target.result}" class="img-fluid" alt="client logo" loading="lazy">`;
+
+        // إنشاء زر + جديد
+        const wrapper = document.getElementById("clients-wrapper");
+        const newAddBtn = document.createElement("div");
+        newAddBtn.className = "swiper-slide d-flex align-items-center justify-content-center add-client-slide";
+        newAddBtn.innerHTML = `
+          <label style="cursor: pointer;">
+            <div style="width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #999;">
+              +
+            </div>
+            <input type="file" accept="image/*" class="client-upload-input" style="display: none;">
+          </label>
+        `;
+        wrapper.appendChild(newAddBtn);
+
+        // ربط الـ event listener بالزر الجديد
+        initClientUpload(newAddBtn);
+
+        // تحديث swiper
+        if (window.clientsSwiper) {
+          window.clientsSwiper.update();
+        }
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // شغّلها على الزر الموجود في البداية
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".add-client-slide").forEach(initClientUpload);
+  });
+
+  // إعداد سوايبر
+  const clientsSwiper = new Swiper(".init-swiper", {
+    slidesPerView: 4,
+    spaceBetween: 20,
+    loop: false,
+    navigation: {
+      nextEl: ".clients-next",
+      prevEl: ".clients-prev",
+    },
+    breakpoints: {
+      768: { slidesPerView: 4 },
+      576: { slidesPerView: 3 },
+      320: { slidesPerView: 2 }
+    }
+  });
+  window.clientsSwiper = clientsSwiper;
+</script>
 
 
 </body>
