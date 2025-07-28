@@ -291,18 +291,9 @@
 <body class="index-page">
   <!-- Immediate script to ensure content visibility -->
   <script>
-    // Force content visibility immediately
+    // Ensure main content is always visible (but don't hide splash screen by default)
     (function() {
-      const intro = document.querySelector('.intro');
       const main = document.querySelector('main');
-      
-      if (intro) {
-        intro.style.display = 'none';
-        intro.style.visibility = 'hidden';
-        intro.style.opacity = '0';
-        intro.style.top = '-100vh';
-        intro.style.zIndex = '-1';
-      }
       
       if (main) {
         main.style.display = 'block';
@@ -319,7 +310,7 @@
         section.style.opacity = '1';
       });
       
-      console.log('Immediate content visibility fix applied');
+      console.log('Main content visibility ensured');
     })();
     
     // Debug function to check content visibility
@@ -381,20 +372,31 @@
     // Auto-debug after 2 seconds
     setTimeout(() => {
       window.debugContent();
+      
+      // Additional test to verify sections are visible
+      const sections = document.querySelectorAll('section');
+      console.log(`Found ${sections.length} sections:`);
+      sections.forEach((section, index) => {
+        const computedStyle = getComputedStyle(section);
+        console.log(`Section ${index + 1} (${section.id || 'no-id'}):`, {
+          display: computedStyle.display,
+          visibility: computedStyle.visibility,
+          opacity: computedStyle.opacity,
+          height: computedStyle.height,
+          width: computedStyle.width
+        });
+      });
     }, 2000);
   </script>
   
   <!-- Splash screen should be here, before header -->
-  <div class="intro" style="display: none;">
+  <div class="intro">
     <h1 class="logo-header">
       <img src="{{ secure_asset('images/DimensionsLogo.png') }}" alt="Dimensions Logo" class="logo">
     </h1>
   </div>
   
-  <!-- Temporary debug element to test if content is loading -->
-  <div style="position: fixed; top: 10px; right: 10px; background: red; color: white; padding: 10px; z-index: 10000; font-size: 12px;">
-    Content Test - If you see this, content is loading
-  </div>
+
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">

@@ -13,7 +13,8 @@
     const intro = document.querySelector('.intro');
     const main = document.querySelector('main');
     
-    if (intro) {
+    // Only hide splash screen if it's currently visible and should be hidden
+    if (intro && (intro.style.display === 'flex' || getComputedStyle(intro).display === 'flex')) {
       intro.style.display = 'none';
       intro.style.visibility = 'hidden';
       intro.style.opacity = '0';
@@ -39,8 +40,8 @@
     console.log('Forced content visibility');
   }
 
-  // Call immediately to ensure content is visible
-  forceContentVisibility();
+  // Don't call immediately - let the splash screen logic handle it
+  // forceContentVisibility();
 
   const body = document.body;
   const header = document.querySelector('#header');
