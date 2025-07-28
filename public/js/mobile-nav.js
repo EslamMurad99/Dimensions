@@ -398,10 +398,10 @@ if (typeof window.MobileNavigation !== 'undefined') {
 if (!window.mobileNavLoaded) {
   window.mobileNavLoaded = true;
   
-  // Initialize mobile navigation when DOM is loaded - only if not already initialized
-  if (!window.mobileNav) {
-    document.addEventListener('DOMContentLoaded', () => {
-      // Create global instance using the global class
+  // Initialize mobile navigation when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    // Only create if not already exists
+    if (!window.mobileNav) {
       window.mobileNav = new window.MobileNavigation();
       
       // Listen for page changes (for SPA-like behavior)
@@ -410,8 +410,8 @@ if (!window.mobileNavLoaded) {
           window.mobileNav.updateState();
         }
       });
-    });
-  }
+    }
+  });
 } else {
   console.log('mobile-nav.js already loaded, skipping...');
 } 

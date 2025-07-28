@@ -84,6 +84,12 @@
     if (!window.splashAnimationStarted) {
       window.splashAnimationStarted = true;
       
+      // Add timeout to prevent getting stuck
+      const splashTimeout = setTimeout(() => {
+        console.log('Splash screen timeout reached, forcing hide');
+        intro.style.display = 'none';
+      }, 10000); // 10 second timeout
+      
       setTimeout(() => {
         console.log('Adding logo-active class...');
         logo.classList.add('logo-active');
@@ -127,6 +133,9 @@
         console.log('Moving intro up...');
         intro.style.top = '-100vh';
         
+        // Clear the timeout since animation completed successfully
+        clearTimeout(splashTimeout);
+        
         // Remove the intro element after animation completes
         setTimeout(() => {
           intro.style.display = 'none';
@@ -140,6 +149,7 @@
           console.log('Fallback: Forcing splash screen to hide');
           intro.style.display = 'none';
           intro.style.top = '-100vh';
+          clearTimeout(splashTimeout);
         }
       }, 5000);
     }

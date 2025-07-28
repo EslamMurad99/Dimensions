@@ -7,7 +7,12 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index() {
-        $service = Service::all();
+        try {
+            $service = Service::all();
+        } catch (\Exception $e) {
+            // If database connection fails, use empty collection
+            $service = collect([]);
+        }
         return view('index', compact('service'));
     }
 

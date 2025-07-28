@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; default-src 'self' https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' https:;">
   <title>Dimensions Company for Operation and Maintenance </title>
   <meta name="description" content="Dimensions Company is a leading provider of comprehensive manpower solutions and event 
               planning services for the hospitality industry in Saudi Arabia since 2003.">
@@ -307,7 +307,7 @@
           <li><a href="{{ route('about') }}">About Us</a></li>
           <li><a href="{{ route('services') }}">Our Services</a></li>
           <li><a href="{{ route('projects') }}">Our Projects</a></li>
-          <li><a href="{{ route('contacts') }}">Contact Us</a></li>
+                          <li><a href="{{ route('contact') }}">Contact Us</a></li>
           <li><a href="{{ route('login') }}">Login</a></li>
           <li><a href="{{ route('register') }}">Register</a></li>
         </ul>  
