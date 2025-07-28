@@ -33,6 +33,13 @@ if (typeof window.MobileNavigation !== 'undefined') {
    * Create mobile navigation HTML structure
    */
   createMobileNavHTML() {
+    // Check if mobile navigation already exists
+    const existingContainer = document.querySelector('.mobile-nav-container');
+    if (existingContainer) {
+      this.container = existingContainer;
+      return;
+    }
+
     // Create mobile navigation container
     this.container = document.createElement('div');
     this.container.className = 'mobile-nav-container';
@@ -183,10 +190,11 @@ if (typeof window.MobileNavigation !== 'undefined') {
    * Create new mobile navigation toggle button
    */
   createNewToggleButton() {
-    // Remove existing toggle button if it exists
+    // Check if toggle button already exists
     const existingToggle = document.querySelector('.mobile-nav-toggle');
     if (existingToggle) {
-      existingToggle.remove();
+      this.toggleBtn = existingToggle;
+      return;
     }
 
     // Create new toggle button
@@ -410,6 +418,8 @@ if (!window.mobileNavLoaded) {
           window.mobileNav.updateState();
         }
       });
+    } else {
+      console.log('Mobile navigation already exists, skipping initialization...');
     }
   });
 } else {
