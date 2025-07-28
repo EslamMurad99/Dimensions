@@ -12,7 +12,13 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 
-
+// Middleware to check if the application is in maintenance mode
+Route::get('/', function () {
+    return response('Laravel is working!', 200);
+});
+Route::get('/debug-log', function () {
+    return file_get_contents(storage_path('logs/laravel.log'));
+});
 // ✅ الصفحة الرئيسية
 Route::get('/', function () {
     return view('index');
